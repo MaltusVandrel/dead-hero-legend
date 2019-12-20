@@ -1,2 +1,2 @@
 # dead-hero-legend
-A game
+A very cool game
