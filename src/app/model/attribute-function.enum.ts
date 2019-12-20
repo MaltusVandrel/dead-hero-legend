@@ -6,6 +6,6 @@ export enum AttributeFunction {
   Constitution, 
   Charisma, 
   Luck, 
-  Appearance;
+  Appearance
   
 }
