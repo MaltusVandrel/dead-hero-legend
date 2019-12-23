@@ -14,6 +14,8 @@ export class Being {
     private _luck:Attribute=new Attribute(AttributeFunction.Luck);
     private _appearance:Attribute=new Attribute(AttributeFunction.Appearance);
   
+    get name():String{ return this._name}
+    
     get strength():Attribute{return this._strength};
     get constitution():Attribute{return this._constitution};
     get dexterity():Attribute{return this._dexterity};
@@ -25,6 +27,13 @@ export class Being {
     
     attributes():Attribute[]{
         return [this.strength,this.constitution,this.dexterity,this.inteligence,this.wisdom,this.charisma,this.luck,this.appearance];
+    }
+    getAttribute(name:AttributeFunction):Attribute{
+        for(let attribute of this.attributes()){
+            if(attribute.name===name){
+                return attribute;
+            }
+        }
     }
 
 }

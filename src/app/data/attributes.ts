@@ -1,4 +1,4 @@
-import { AttributeFunction } from "../model/attribute-function.enum";
+import { AttributeFunction } from "../model/actors/attribute-function.enum";
 
 export let attributeFunctions:AttributeFunction[] = [
     AttributeFunction.Strength,

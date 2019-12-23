@@ -1,0 +1,19 @@
+<header>
+    <a [routerLink]="['/']" class="logo">TDHL</a>
+    <a [routerLink]="['/']" class="button">Home</a>  
+</header>
+<div class="container pt-8">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4" >
+        <button 
+        *ngFor="let demo of demos | keyvalue"
+        class="wd-100" 
+        (click)="goScene(demo.value)">
+        {{demo.key}}</button>
+      </div> 
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>

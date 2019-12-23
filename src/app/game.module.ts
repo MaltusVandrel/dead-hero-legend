@@ -7,6 +7,9 @@ import { GameComponent } from './game.component';
 
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { AboutComponent } from './components/about/about.component';
+import { SceneComponent } from './components/scene/scene.component';
+import { DemosComponent } from './components/demos/demos.component';
+import { SceneService } from './data/service/scene.service';
 
 @NgModule({
   bootstrap:    [
@@ -14,12 +17,18 @@ import { AboutComponent } from './components/about/about.component';
   declarations: [ 
     GameComponent,
     MainMenuComponent,
-    AboutComponent ],
+    AboutComponent,
+    SceneComponent,
+    DemosComponent,
+    ] ,
+  providers:[SceneService],
   imports:      [ BrowserModule, FormsModule,
   RouterModule.forRoot([
       { path: '', component: MainMenuComponent },
       { path: 'home', component: MainMenuComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'scene', component: SceneComponent },
+      { path: 'demos', component: DemosComponent },
     ]) 
   ]
 })
