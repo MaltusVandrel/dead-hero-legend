@@ -24,4 +24,6 @@ export class Scene{
     isStart():boolean{
        return this._textIndex==0; 
     }
+
+    
 }
