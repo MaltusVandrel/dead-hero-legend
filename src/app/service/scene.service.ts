@@ -1,6 +1,6 @@
 import { Scene } from "src/app/model/system/scene";
 import { Injectable } from "@angular/core";
-import { scenesMap } from "../scenes";
+import { scenesMap } from "../data/scenes";
 
 @Injectable()
 export class SceneService {
