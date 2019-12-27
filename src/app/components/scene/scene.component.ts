@@ -2,7 +2,7 @@ import { OnInit, Component, HostListener } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 import { Scene } from "src/app/model/system/scene";
-import { SceneService } from "src/app/data/service/scene.service";
+import { SceneService } from "src/app/service/scene.service";
 
 @Component({
     selector: 'scene',
