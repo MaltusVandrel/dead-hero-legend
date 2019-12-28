@@ -9,7 +9,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { AboutComponent } from './components/about/about.component';
 import { SceneComponent } from './components/scene/scene.component';
 import { DemosComponent } from './components/demos/demos.component';
-import { SceneService } from './data/service/scene.service';
+import { GameService } from './service/game.service';
 
 @NgModule({
   bootstrap:    [
@@ -21,7 +21,7 @@ import { SceneService } from './data/service/scene.service';
     SceneComponent,
     DemosComponent,
     ] ,
-  providers:[SceneService],
+  providers:[GameService],
   imports:      [ BrowserModule, FormsModule,
   RouterModule.forRoot([
       { path: '', component: MainMenuComponent },

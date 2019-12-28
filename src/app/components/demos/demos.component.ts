@@ -1,8 +1,9 @@
 import { OnInit, Component } from "@angular/core";
 import { Scene } from "src/app/model/system/scene";
 import {demoMap} from "src/app/data/demos";
-import { SceneService } from "src/app/service/scene.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Game } from "src/app/model/system/game";
+import { GameService } from "src/app/service/game.service";
 @Component({
     selector: 'demos',
     templateUrl: './demos.component.html',
@@ -10,12 +11,12 @@ import { ActivatedRoute, Router } from "@angular/router";
   })
   export class DemosComponent implements OnInit {
 
-    demos:Map<String,Scene> = demoMap;
-    constructor(private sceneService:SceneService,
+    demos:Map<String,String> = demoMap;
+    constructor(private gameService:GameService,
       private router: Router) { }
   
-    goScene(value:Scene){
-      this.sceneService.scene=value;
+    goGame(value:String){
+      this.gameService.setGame(value);
       this.router.navigate(['/scene']);
     }
     ngOnInit() {

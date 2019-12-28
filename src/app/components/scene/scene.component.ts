@@ -2,7 +2,8 @@ import { OnInit, Component, HostListener } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 import { Scene } from "src/app/model/system/scene";
-import { SceneService } from "src/app/service/scene.service";
+import { GameService } from "src/app/service/game.service";
+import { Game } from "src/app/model/system/game";
 
 @Component({
     selector: 'scene',
@@ -11,13 +12,15 @@ import { SceneService } from "src/app/service/scene.service";
   })
   export class SceneComponent implements OnInit {
     scene:Scene;
+    game:Game;
     constructor(
       private route: ActivatedRoute,
-      private sceneService:SceneService
+      private gameService:GameService
     ) { }
   
     ngOnInit() {
-      this.scene=this.sceneService.scene;
+      this.game=this.gameService.getGame();
+      this.scene = this.game.actualScene;
     }
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {

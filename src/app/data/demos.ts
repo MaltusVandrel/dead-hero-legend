@@ -1,6 +1,7 @@
 import { Scene } from "../model/system/scene";
-import { scenesMap } from "./scenes";
+import { Game } from "../model/system/game";
+import { gamesMap } from "./games";
 
-let demos:Map<String,Scene> = new Map<String,Scene>();
-demos.set("A Simple Text",scenesMap.get("DEMOS_SIMPLE_TEXT"));
+let demos:Map<String,String> = new Map<String,String>();
+demos.set("A Simple Text","TEC_DEMO_1");
 export let demoMap=demos;
