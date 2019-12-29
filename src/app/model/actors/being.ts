@@ -1,6 +1,5 @@
 import { AttributeFunction } from "./attribute-function.enum";
 import { Attribute } from "./attribute";
-import { Scene } from "../system/scene";
 
 export class Being {
 

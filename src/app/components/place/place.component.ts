@@ -1,17 +1,17 @@
 import { OnInit, Component, HostListener } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
-import { Scene } from "src/app/model/system/scene";
+import { Place } from "src/app/model/system/place";
 import { GameService } from "src/app/service/game.service";
 import { Game } from "src/app/model/system/game";
 
 @Component({
-    selector: 'scene',
-    templateUrl: './scene.component.html',
-    styleUrls: ['./scene.component.css']
+    selector: 'place',
+    templateUrl: './place.component.html',
+    styleUrls: ['./place.component.css']
   })
-  export class SceneComponent implements OnInit {
-    scene:Scene;
+  export class PlaceComponent implements OnInit {
+    place:Place;
     game:Game;
     constructor(
       private route: ActivatedRoute,
@@ -20,12 +20,12 @@ import { Game } from "src/app/model/system/game";
   
     ngOnInit() {
       this.game=this.gameService.getGame();
-      this.scene = this.game.actualScene;
+      this.place = this.game.actualPlace;
     }
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if(event.key=='Enter'){
-      this.scene.nextText();
+      this.place.nextText();
     }
   }
   

@@ -1,4 +1,4 @@
-import { Scene } from "../model/system/scene";
+import { Place } from "../model/system/place";
 import { Game } from "../model/system/game";
 import { gamesMap } from "./games";
 

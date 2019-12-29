@@ -1,5 +1,5 @@
 import { OnInit, Component } from "@angular/core";
-import { Scene } from "src/app/model/system/scene";
+import { Place } from "src/app/model/system/place";
 import {demoMap} from "src/app/data/demos";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Game } from "src/app/model/system/game";
@@ -17,7 +17,7 @@ import { GameService } from "src/app/service/game.service";
   
     goGame(value:String){
       this.gameService.setGame(value);
-      this.router.navigate(['/scene']);
+      this.router.navigate(['/place']);
     }
     ngOnInit() {
     }

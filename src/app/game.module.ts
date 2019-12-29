@@ -7,7 +7,7 @@ import { GameComponent } from './game.component';
 
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { AboutComponent } from './components/about/about.component';
-import { SceneComponent } from './components/scene/scene.component';
+import { PlaceComponent } from './components/place/place.component';
 import { DemosComponent } from './components/demos/demos.component';
 import { GameService } from './service/game.service';
 
@@ -18,7 +18,7 @@ import { GameService } from './service/game.service';
     GameComponent,
     MainMenuComponent,
     AboutComponent,
-    SceneComponent,
+    PlaceComponent,
     DemosComponent,
     ] ,
   providers:[GameService],
@@ -27,7 +27,7 @@ import { GameService } from './service/game.service';
       { path: '', component: MainMenuComponent },
       { path: 'home', component: MainMenuComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'scene', component: SceneComponent },
+      { path: 'place', component: PlaceComponent },
       { path: 'demos', component: DemosComponent },
     ]) 
   ]

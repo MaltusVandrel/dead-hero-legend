@@ -1,4 +1,4 @@
-export class Scene{
+export class Place{
     private _texts:String[];
     private _textIndex:number=0;
     private _referenceCode:String;

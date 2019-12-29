@@ -1,27 +1,27 @@
-import { Scene } from "./scene";
+import { Place } from "./place";
 import { Being } from "../actors/being";
 
 export class Game{
-    private _actualScene:Scene;
-    private _scenes:Scene[];
+    private _actualPlace:Place;
+    private _places:Place[];
     private _mainCharacter:Being;
     
-    constructor(firstScene:Scene,mainCharacter:Being,scenes?:Scene[]){
-        this._actualScene=firstScene;
+    constructor(firstPlace:Place,mainCharacter:Being,places?:Place[]){
+        this._actualPlace=firstPlace;
         this._mainCharacter=mainCharacter;
-        if(scenes!=undefined&&scenes!=null&&scenes.length>0){
-            this._scenes=scenes;
+        if(places!=undefined&&places!=null&&places.length>0){
+            this._places=places;
         }else{
-            this._scenes=[];
-            this._scenes.push(this._actualScene);
+            this._places=[];
+            this._places.push(this._actualPlace);
         }
     }
 
-    get actualScene():Scene{
-        return this._actualScene;
+    get actualPlace():Place{
+        return this._actualPlace;
     }
-    set actualScene(scene:Scene){
-        this._actualScene=scene;
+    set actualPlace(place:Place){
+        this._actualPlace=place;
     }
     get mainCharacter():Being{
         return this._mainCharacter;
