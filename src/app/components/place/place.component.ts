@@ -22,10 +22,14 @@ import { Game } from "src/app/model/system/game";
       this.game=this.gameService.getGame();
       this.place = this.game.actualPlace;
     }
-  @HostListener('document:keypress', ['$event'])
+  @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if(event.key=='Enter'){
+    if(event.key=='Enter'||event.key=='ArrowRight'){
       this.place.nextText();
+    }else if(event.key=='Backspace'||event.key=='ArrowLeft'){
+      this.place.previousText();
+    }else{
+      console.log(event.key);
     }
   }
   
