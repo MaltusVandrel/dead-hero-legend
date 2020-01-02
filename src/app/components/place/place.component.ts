@@ -21,18 +21,32 @@ import { Game } from "src/app/model/system/game";
   
     ngOnInit() {
       this.game=this.gameService.getGame();
-      this.place = this.game.actualPlace;
-      this.place.processDialogs(this.game);
+      this.place = this.game.actualPlace;      
     }
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if(event.key=='Enter'||event.key=='ArrowRight'){
-      this.place.nextText();
-    }else if(event.key=='Backspace'||event.key=='ArrowLeft'){
-      this.place.previousText();
-    }else{
-      console.log(event.key);
+    actualText():String{
+      return this.place.actualText(this.game);
     }
-  }
+    hasNext():boolean{
+      return this.place.hasNext(this.game);
+    }
+    canGoBack():boolean{
+      return this.place.canGoBack(this.game);
+    }
+    nextText(){
+      this.place.nextText(this.game);
+    }
+    previousText(){
+      this.place.previousText(this.game);
+    }
+    @HostListener('document:keydown', ['$event'])
+    handleKeyboardEvent(event: KeyboardEvent) {
+      if(event.key=='Enter'||event.key=='ArrowRight'){
+        this.nextText();
+      }else if(event.key=='Backspace'||event.key=='ArrowLeft'){
+        this.previousText();
+      }else{
+        console.log(event.key);
+      }
+    }
   
   }

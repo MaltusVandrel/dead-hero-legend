@@ -4,39 +4,54 @@ import { GenericUtils } from "src/app/utils/generic.utils";
 
 export class GameDialog{
     private _entries:GameDialogEntry[];//turn it on nodes, ad probably will be better
-    private _entryIndex:number;
+    private _entryIndex:number=0;
     private _entry:GameDialogEntry=null;
 
-
-    private eligibleList(game:Game):GameDialogEntry[]{
-        let entries=[];
-        for(let entry of this._entries){
-            if(entry.isElegible(game))entries.push(entry);
-        }
-        return entries;
+    constructor(entries:GameDialogEntry[]){
+        this._entries=entries;
     }
-    
-    actualEntry(game:Game):String{
-        if(GenericUtils.isNull(this._entry)){
 
+    actualEntry(game:Game):GameDialogEntry{
+        while(GenericUtils.isNull(this._entry)||!this._entry.isElegible(game)){
+            this._entry=this._entries[this._entryIndex];
+            if(!this._entry.isElegible(game))this._entryIndex++;
         }
-        return ;   
+        return this._entry;   
     }
     nextEntry(game:Game){
-        if(!this._isProcessed)throw "The text is not precessed.";
-        if(this.hasNext())this._textIndex++;
+        if(this.hasNextEntry(game)){
+            do{
+                this._entryIndex++;
+                this._entry=this._entries[this._entryIndex];
+            }while(!this._entry.isElegible(game)) 
+        }
     }
     previousEntry(game:Game){
-        if(!this._isProcessed)throw "The text is not precessed.";
-        if(!this.isStart())this._textIndex--;
-    }    
-    isLastEntry(game:Game):boolean{
-        return (this._texts.length>(this._textIndex+1));
+        if(this.canGoBack(game)){
+            do{
+                this._entryIndex--;
+                this._entry=this._entries[this._entryIndex];
+            }while(!this._entry.isElegible(game)) 
+        }
     }
-    isFirstEntry(game:Game):boolean{
-       if(!this._isProcessed)throw "The text is not precessed.";
-       return this._textIndex==0; 
+    hasNextEntry(game:Game):boolean{
+        let index = this._entryIndex+1;
+        while(this._entries.length>index){
+            if(this._entries[index].isElegible(game))return true;
+            index++;
+        }
+        return false;        
     }
+    canGoBack(game:Game):boolean{
+        let index = this._entryIndex-1;
+        while(0<=index){
+            if(this._entries[index].isUnrepeatable())return false;
+            if(this._entries[index].isElegible(game))return true;
+            index--;
+        }
+        return false;       
+    }   
+    
 
     
 }

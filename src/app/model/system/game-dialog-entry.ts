@@ -15,7 +15,9 @@ export class GameDialogEntry{
         this._alternativeText=alternativeText;
         this._unrepeatable=unrepeatable;        
     }
-
+    isUnrepeatable():boolean{
+        return this._unrepeatable;
+    }
     isElegible(game:Game):boolean{
         if(this._read&&this._unrepeatable)return false;
         if(GenericUtils.isNull(this._criterea))return true;
@@ -29,7 +31,6 @@ export class GameDialogEntry{
         }else{
             return this._alternativeText;
         }
-
     }
 
 }

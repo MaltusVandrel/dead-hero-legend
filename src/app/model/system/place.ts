@@ -1,6 +1,7 @@
 import { GameDialog } from "./game-dialog";
 import { Game } from "./game";
 import { GenericUtils } from "src/app/utils/generic.utils";
+import { GameDialogEntry } from "./game-dialog-entry";
 
 export class Place{
     private _name:String;
@@ -24,46 +25,20 @@ export class Place{
     //its my foresight that tells me that at some point
     //dialog will have choices and may reward with
     //wisdom os something like that
-    actualText():String{
-        return this.description.actualText()
+    actualText(game:Game):String{
+        return this.description.actualEntry(game).getEntry(game);
     }
-    nextText(){
-        if(this._fistTime&&GenericUtils.isNotNull(this._introduction)){
-            if(this.introduction.hasNext()){
-                return this.introduction.nextText();
-            }else{
-                this._fistTime=false;
-                return this.description.actualText();
-            }
-       }else{            
-            if(this.description.hasNext())return this.description.nextText();
-       }
+    nextText(game:Game){
+        this.description.nextEntry(game);
     }
-    previousText(){
-        if(this._fistTime&&GenericUtils.isNotNull(this._introduction)){
-            if(!this.introduction.isStart()){
-                return this.introduction.previousText();
-            }
-       }else{
-            if(!this.description.isStart()){
-                return this.description.previousText();
-            }else{
-                GenericUtils.isNotNull(this._introduction){
-                    
-                }
-            }           
-       }
+    previousText(game:Game){
+        this.description.previousEntry(game);
     }    
-    hasNext():boolean{
-        if(this._fistTime){
-            if(!this.introduction.isStart()){
-                return this.introduction.previousText();
-            }
-       }
-        return (this._texts.length>(this._textIndex+1));
+    hasNext(game:Game):boolean{
+        return this.description.hasNextEntry(game);
     }
-    isStart():boolean{
-       return this._textIndex==0; 
+    canGoBack(game:Game):boolean{
+        return this.description.canGoBack(game);
     }
     
 }
