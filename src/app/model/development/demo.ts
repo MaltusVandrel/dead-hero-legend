@@ -1,11 +1,19 @@
-export class Demo{
-    private _route:String;
-    private _param:any;
+import { Game } from "../system/game";
 
-    constructor (route:String,param:any){
+export class Demo{
+    private _name:String;
+    private _route:String;
+    private _gameReference:String;
+
+    constructor (
+        name:String,
+        route:String,
+        game:String){
+            this._name=name;
         this._route=route;
-        this._param=param;
+        this._gameReference=game;
     }
+    get name(){return this._name};
     get route():String{return this._route;};
-    get param():any{return this._param;};
+    get gameReference():any{return this._gameReference;};
 }

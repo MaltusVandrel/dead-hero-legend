@@ -8,14 +8,10 @@
       </div>
       <div class="col-sm-4" >
         <button 
-        *ngFor="let demo of demos | keyvalue"
+        *ngFor="let demo of demos"
         class="wd-100" 
-        (click)="goGame(demo.value)">
-        {{demo.key}}</button>
-        <button 
-        class="wd-100" 
-        (click)="goGame(demos.get('TEC_DEMO_1').value)">
-        {{demos.get('TEC_DEMO_1').key}}</button>
+        (click)="goGame(demo)">
+        {{demo.name}}</button>        
       </div> 
 
       

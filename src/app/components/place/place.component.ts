@@ -13,6 +13,7 @@ import { Game } from "src/app/model/system/game";
   export class PlaceComponent implements OnInit {
     place:Place;
     game:Game;
+    
     constructor(
       private route: ActivatedRoute,
       private gameService:GameService
@@ -21,6 +22,7 @@ import { Game } from "src/app/model/system/game";
     ngOnInit() {
       this.game=this.gameService.getGame();
       this.place = this.game.actualPlace;
+      this.place.processDialogs(this.game);
     }
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
