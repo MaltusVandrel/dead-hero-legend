@@ -26,7 +26,7 @@ export class GameDialogEntry{
     }
     getEntry(game:Game):String{
         this._read=true;
-        if(this._criterea.evaluate(game)){
+        if(GenericUtils.isNull(this._criterea)||this._criterea.evaluate(game)){
             return this._text;
         }else{
             return this._alternativeText;

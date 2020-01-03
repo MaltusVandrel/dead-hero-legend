@@ -4,5 +4,5 @@ import { gamesMap } from "./games";
 import { Demo } from "../model/development/demo";
 
 let demos:Demo[] = [];
-demos.push(new Demo("A Simple Text","/place","TEC_DEMO_1"));
+demos.push(new Demo("The Void","/place","DEMOS_VOID"));
 export let demoList=demos;

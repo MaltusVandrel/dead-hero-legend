@@ -12,10 +12,13 @@ export class GameDialog{
     }
 
     actualEntry(game:Game):GameDialogEntry{
-        while(GenericUtils.isNull(this._entry)||!this._entry.isElegible(game)){
+        if(GenericUtils.isNull(this._entry)){
             this._entry=this._entries[this._entryIndex];
-            if(!this._entry.isElegible(game))this._entryIndex++;
-        }
+            while(!this._entry.isElegible(game)){
+                this._entryIndex++;
+                this._entry=this._entries[this._entryIndex];                
+            }
+        }        
         return this._entry;   
     }
     nextEntry(game:Game){

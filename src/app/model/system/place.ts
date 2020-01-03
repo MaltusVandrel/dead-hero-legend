@@ -8,7 +8,7 @@ export class Place{
     private _description:GameDialog;
     private _fistTime:boolean=true;
     private _referenceCode:String;
-    constructor(name:String,description?:GameDialog,introduction?:GameDialog,referenceCode?:String,game?:Game){
+    constructor(name:String,description?:GameDialog,referenceCode?:String,game?:Game){
         this._name=name;
         this._description=description;
         this._referenceCode=referenceCode;
