@@ -8,20 +8,23 @@
         <ng-container *ngIf="place!=undefined&&place!=null">
             <p>{{actualText()}}</p>
         </ng-container>
-        <hr/>
-        <div style="text-align: center;"> 
-          <button             
-            class="small" 
+        <div style="text-align: right;">
+          <small             
+            class="action-text" 
             (click)="previousText()" 
             [attr.disabled]="(!canGoBack()) ? 'disabled' : null">
-              <span class="tooltip" aria-label="Press 'Backspace' or '←' to Go Back.">Go Back</span>
-          </button>
-          <button 
-            class="small"
+              <span >Go Back</span>
+          </small>
+          <small 
+            class="action-text"
             (click)="nextText()" 
             [attr.disabled]="!hasNext() ? 'disabled' : null">
-              <span class="tooltip" aria-label="Press 'Enter' or '→' to Continue.">Continue</span>
-            </button>
+              <span >Continue</span>
+            </small>
+        </div>   
+        <hr/>
+        <div style="text-align: center;"> 
+          
         </div>
       </div>
       <div class="col-sm-1"></div>

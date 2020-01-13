@@ -2,12 +2,15 @@ import { GameDialog } from "./game-dialog";
 import { Game } from "./game";
 import { GenericUtils } from "src/app/utils/generic.utils";
 import { GameDialogEntry } from "./game-dialog-entry";
+import { Activity } from "./activity";
 
 export class Place{
     private _name:String;
     private _description:GameDialog;
     private _fistTime:boolean=true;
     private _referenceCode:String;
+    private _options:Activity[];
+    
     constructor(name:String,description?:GameDialog,referenceCode?:String,game?:Game){
         this._name=name;
         this._description=description;
