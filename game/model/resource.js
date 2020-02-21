@@ -3,6 +3,7 @@ class Resource extends baseModel{
     maxValue=0
     code;
     constructor(value,code){
+        super();
         this.value=value;
         this.maxValue=value;
         this.code=code;
@@ -11,7 +12,7 @@ class Resource extends baseModel{
 
 function _doResFunc(code){
     return (inVal)=>{
-        return new Attribute(inVal,code);
+        return new Resource(inVal,code);
     }
 }
 Resource.HEALTH=_doResFunc(Code.Resource.HEALTH);

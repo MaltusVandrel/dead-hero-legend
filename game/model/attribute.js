@@ -2,6 +2,7 @@ class Attribute extends baseModel{
     value=0;
     code;
     constructor(value,code){
+        super();
         this.value=value;
         this.code=code;
     }

@@ -1,11 +1,12 @@
-class Being extends baseModel{
+class Entity extends baseModel{
     
     name;
     attributes=[];    
     resources=[];
     constructor(obj) {
+        super();
         if(obj){
-            if(obj.name)this.attributes=obj.name;
+            if(obj.name)this.name=obj.name;
             if(obj.attributes)this.attributes=obj.attributes;
             if(obj.resources)this.resources=obj.resources;
         }
@@ -15,11 +16,11 @@ class Being extends baseModel{
         let randomPartDamage= Math.random() * ( .5 - (this.luk()/100) ) ;
         let fixedPartDamage= 0.5 + (this.luk()/100);
         let baseDamage = 35;
+        let multiplier = 1+((Math.random() * 100 )+this.luk())/100;
         let firstHalfDamage= baseDamage*randomPartDamage;
-        let lastHalfDamage= baseDamage*fixedPartDamage;
-        let fullNormalDamage = firstHalfDamage+lastHalfDamage+this.str();
-        let multiplier = ( (Math.random()*100) + this.luk() )/100;
-        let fullDamage = Math.floor(fullNormalDamage * multiplier);
+        let lastHalfDamage= baseDamage*fixedPartDamage*multiplier;
+        let fullNormalDamage = firstHalfDamage+lastHalfDamage+this.str();        
+        let fullDamage = Math.floor(fullNormalDamage);
         return fullDamage;
     }
 
@@ -29,16 +30,16 @@ class Being extends baseModel{
         }
     }
     health(){
-        return this.getAtribute(Code.Resource.HEALTH);        
+        return this.getResource(Code.Resource.HEALTH);        
     }
     mana(){
-        return this.getAtribute(Code.Resource.MANA);        
+        return this.getResource(Code.Resource.MANA);        
     }
     spirit(){
-        return this.getAtribute(Code.Resource.SPIRIT);        
+        return this.getResource(Code.Resource.SPIRIT);        
     }
     stamina(){
-        return this.getAtribute(Code.Resource.STAMINA);        
+        return this.getResource(Code.Resource.STAMINA);        
     }
 
     getAtribute(code){
