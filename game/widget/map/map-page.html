@@ -1,0 +1,58 @@
+<button onclick="closeMap()">close</button>
+<style>
+    #root_div_map{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--back-color);
+    }
+    #root_div_map #mapHolder{
+        width: calc(100vw - 60px);
+        height: calc(100vh - 5% - 90px);
+        margin-top: 5%;
+        margin-left: 20px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        background-color: black;
+    }
+    #mapHolder svg{
+        border:1px solid #444444;
+        position: relative;
+    }
+    circle.hoverable:hover{
+      fill: #444444;
+      r:8;
+      transition: r 0.1s,fill 0.2s;
+    }
+</style>
+    <div id='mapHolder'>
+          <svg id='map' width='2000' height='2000'>
+            <circle class='hoverable' cx="10" cy="10" r="4" stroke="black" stroke-width="2" fill="red" />
+            <circle class='hoverable' cx="1000" cy="1000" r="4" stroke="black" stroke-width="2" fill="blue" />
+            Sorry, your browser does not support inline SVG.  
+          </svg>
+    </div>
+<script>
+var mainWidth = $( document ).width();
+var mainHeight = $( document ).height();
+var mapWidth=$('#map').width()
+var mapHeight=$('#map').height()
+var offsetBase=$('#map').offset();
+offsetBase.y=offsetBase.top;
+offsetBase.x=offsetBase.left;
+var centerPointX=((mainWidth)/2);
+var centerPointY=((mainHeight)/2);
+var mapCenterPointX=((mapWidth)/2)+(offsetBase.x*4);
+var mapCenterPointY=((mapHeight)/2)+offsetBase.y;
+
+var offsetX = (centerPointX-mapCenterPointX);
+var offsetY = (centerPointY-mapCenterPointY);
+
+$('#map')[0].style.left=offsetX;
+$('#map')[0].style.top=offsetY;
+</script>    
+     

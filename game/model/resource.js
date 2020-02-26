@@ -1,4 +1,4 @@
-class Resource extends baseModel{
+class Resource extends BaseModel{
     value=0;
     maxValue=0
     code;

@@ -1,4 +1,4 @@
-class Attribute extends baseModel{
+class Attribute extends BaseModel{
     value=0;
     code;
     constructor(value,code){

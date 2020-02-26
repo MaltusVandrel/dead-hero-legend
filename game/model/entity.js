@@ -1,4 +1,4 @@
-class Entity extends baseModel{
+class Entity extends BaseModel{
     
     name;
     attributes=[];    

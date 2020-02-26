@@ -1,3 +1,3 @@
-class baseModel{
+class BaseModel{
     _uniqueId=(new Date()).getTime();
 }
