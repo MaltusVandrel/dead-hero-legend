@@ -9,22 +9,34 @@
         overflow: hidden;
         background-color: black;
     }
-    #root_div_map svg{
+    #root_div_map>#map{
         border:1px solid #444444;
-        position: relative;
-        z-index:-1;
+        position: absolute;
+        width: 2000px;
+        height: 2000px;
+        
     }
-    circle.hoverable:hover{
+    .circle{
+      width:6px;
+      height:6px;
+      position: relative; 
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: red;    
+      transition: margin 0.1s,width 0.1s,background-color 0.2s; 
+    }
+    .hoverable:hover{
       fill: #444444;
-      r:8;
-      transition: r 0.1s,fill 0.2s;
+      width:8px;
+      height: 8px;
+      margin-left: -2px;
+      margin-top: -2px;
+      background-color: blue;     
     }
 </style>
-          <svg id='map' width='2000' height='2000'>
+          <div id='map' width='2000' height='2000'>
             
-            
-            Sorry, your browser does not support inline SVG.  
-          </svg>
+          </div>
     
 <script>
 var mainWidth = $( document ).width();
@@ -46,14 +58,21 @@ $('#map')[0].style.left=offsetX+'px';
 $('#map')[0].style.top=offsetY+'px';
 $('#map').html('');
 for(place of places){
+  console.log(place);
   let pointOfInterest=
-  "<circle class='hoverable' cx='"+place.x+1000+"' cy='"+place.y+1000+"' r='4' stroke='black' stroke-width='2' fill='red' onclick='goToPOI("+place._uniqueId+")' />";
-  $('#map').html($('#map').html()+pointOfInterest);
+  "<div class='circle hoverable' style='left:"+(place.x+1000)+"px;top:"+(place.y+1000)+"px' onclick='goToPOI("+place._uniqueId+")' ></div>";
+  $('#map').append($(pointOfInterest));
+  
 }
+let mapEl=$('#map').detach();
+$('#root_div_map').append(mapEl);
+
 function goToPOI(id){
   alert("POI "+id) 
 }
 
+
+    
 
 </script>    
      
