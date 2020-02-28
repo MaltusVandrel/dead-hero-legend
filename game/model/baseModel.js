@@ -1,3 +1,4 @@
 class BaseModel{
-    _uniqueId=(new Date()).getTime();
+    _uniqueId=BaseModel._id++;
 }
+BaseModel._id=1;
