@@ -60,14 +60,25 @@ function dragElement(elmnt) {
     // set the element's new position:
     var mainWidth = $( document ).width();
     var mainHeight = $( document ).height();
-    var width=elmnt.width;
-    var height=elmnt.height;
-    
+    var width=$('#map').width();
+    var height=$('#map').height();
+
     let left=(elmnt.offsetLeft - pos1);
     let top= (elmnt.offsetTop - pos2);
     
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    if(((width+left)>(mainWidth/2))){
+
+    if(
+        ( top<=0 && ((height+top)>(mainHeight/2)))//não passar da metada
+       || ( top>0 && top<(mainHeight/2))//não passar da metada
+        
+     ){
+        elmnt.style.top = (top) + "px";
+     }
+    if(
+       ( left<=0 && ((width+left)>(mainWidth/2)))//não passar da metada
+      || ( left>0 && left<(mainWidth/2))//não passar da metada
+       
+    ){
         elmnt.style.left = (left) + "px";
     }
   }

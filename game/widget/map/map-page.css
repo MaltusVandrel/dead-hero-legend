@@ -17,6 +17,7 @@
         position: absolute;
         width: 2000px;
         height: 2000px;
+        cursor: move;
         
     }
     .circle{
