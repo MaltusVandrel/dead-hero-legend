@@ -10,7 +10,8 @@ function showMap(){
     var div = $El('div');
     div.html(mapPage);
     div.attr('id','root_div_map');
-    $('body').append(div);   
+    $('body').append(div);
+    doMap();   
 }
 function closeMap(){
     $("#root_div_map" ).remove();   
