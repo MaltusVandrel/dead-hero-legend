@@ -18,7 +18,8 @@
         width: 2000px;
         height: 2000px;
         cursor: move;
-        
+        background-image: url(/game/widget/map/map.png);
+        background-size: 100%;
     }
     .circle{
       width:8px;
