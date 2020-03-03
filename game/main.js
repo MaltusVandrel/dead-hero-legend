@@ -11,7 +11,7 @@ function showMap(){
     div.html(mapPage);
     div.attr('id','root_div_map');
     $('body').append(div);
-    doMap();   
+    game.map.init();   
 }
 function closeMap(){
     $("#root_div_map" ).remove();   

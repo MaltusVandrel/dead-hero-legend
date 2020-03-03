@@ -21,18 +21,7 @@
         background-image: url(/game/widget/map/map.png);
         background-size: 100%;
     }
-    .circle{
-      width:8px;
-      height:8px;
-      position: relative; 
-      border: 2px solid white;      
-      border-radius: 50%;
-      background-color: red;    
-      transition: transform 0.1s,background-color 0.2s; 
-      cursor: pointer;
-    }
-    .hoverable:hover{
-      fill: #444444;
-      transform: scale(1.5);
-      background-color: blue;     
+    
+    .interactable{
+      cursor: pointer;    
     }    

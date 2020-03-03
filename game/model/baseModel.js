@@ -1,4 +1,4 @@
 class BaseModel{
-    _uniqueId=BaseModel._id++;
+    _uniqueId=parseInt(""+BaseModel._id++);
 }
 BaseModel._id=1;
