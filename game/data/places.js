@@ -1,8 +1,8 @@
 var places=[];
 var connections=[];
 
-var baseOne = new Place({x:-230,y:-200,name:'Base 1'});
-var baseTwo = new Place({x:-50,y:-290,name:'Base 2'});
+var baseOne = new Place({x:-230,y:-200,name:'Nameless Shore'});
+var baseTwo = new Place({x:-50,y:-290,name:'Forggoten Fort'});
 places.push(baseOne);
 places.push(baseTwo);
 

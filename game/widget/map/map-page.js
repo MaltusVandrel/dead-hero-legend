@@ -18,8 +18,8 @@ game.map.centralizeOn=(place)=>{
     y+=place.y;
   }
   
-  var mapCenterPointX=(x)+(offsetBase.x);
-  var mapCenterPointY=(y)+(offsetBase.y);
+  var mapCenterPointX=(x);//+(offsetBase.x);
+  var mapCenterPointY=(y);//+(offsetBase.y);
 
   var offsetX = (centerPointX-mapCenterPointX);
   var offsetY = (centerPointY-mapCenterPointY);
@@ -28,17 +28,18 @@ game.map.centralizeOn=(place)=>{
   
   $('#map')[0].style.left=offsetX+'px';
   $('#map')[0].style.top=offsetY+'px';
-  $('#map').html('');
 }
 
 game.map.goToPlace=(place)=>{
-  alert("POI "+place._uniqueId);
+  console.log("Player went to "+place._uniqueId);
+  game.place=place;
+  game.map.centralizeOn(game.place);
 }
 game.map.showInfo=(place)=>{
   console.log("POI "+place._uniqueId) 
 }
 game.map.init=()=>{
-    
+  $('#map').html('');
   game.map.centralizeOn(game.place);
 
   let mapEl=$('#map').detach();
@@ -49,7 +50,7 @@ game.map.init=()=>{
     let rota=map.line(connection.p1.x+1000+5, connection.p1.y+1000+5, connection.p2.x+1000+5, connection.p2.y+1000+5)
     .stroke({ width: 4,dasharray:'15,15',linecap:'round'});
   }
-  for(place of places){
+  for(let place of places){
     console.log(place);
     let mapPlace=map.rect(10,10).move((place.x+1000), (place.y+1000)).fill('#f06');
     mapPlace.mouseover(()=>{
@@ -100,15 +101,15 @@ game.map.init=()=>{
       
   
       if(
-          ( top<=0 && ((height+top)>(mainHeight*0.1)))//não passar da metada
-         || ( top>0 && top<(mainHeight*0.9))//não passar da metada
+          ( top<=0 && ((height+top)>(mainHeight*0.1)))//não passar da ponta
+         || ( top>0 && top<(mainHeight*0.9))//não passar da ponta
           
        ){
           elmnt.style.top = (top) + "px";
        }
       if(
-         ( left<=0 && ((width+left)>(mainWidth*0.1)))//não passar da metada
-        || ( left>0 && left<(mainWidth*0.9))//não passar da metada
+         ( left<=0 && ((width+left)>(mainWidth*0.1)))//não passar da ponta
+        || ( left>0 && left<(mainWidth*0.9))//não passar da ponta
          
       ){
           elmnt.style.left = (left) + "px";
@@ -116,7 +117,6 @@ game.map.init=()=>{
     }
   
     function closeDragElement() {
-      /* stop moving when mouse button is released:*/
       document.onmouseup = null;
       document.onmousemove = null;
     }
