@@ -1,8 +1,9 @@
 class Encounter extends BaseModel{
-    entities;
+    description;
     interactions;
-    engage;
-    walkoff;
-    run;
-
+    constructor(obj) {
+        super();
+        this.description=obj.description;
+        this.interactions=obj.interactions;    
+    }
 }
