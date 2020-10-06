@@ -69,7 +69,7 @@ function start(){
     GAME.main.pointsToDistribute=6;
     $('#text').html('');
     $('#text').append("<p>What is your name?</p>")
-    $('#text').append('<input type="text" class="form-control" id="start-name"> <button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_start_continue1()">Continue</button>');  
+    $('#text').append('<input type="text" class="form-control" id="start-name"> <br/> <button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_start_continue1()">Continue</button>');  
     
 }
 function _start_continue1(){
@@ -80,7 +80,7 @@ function _start_continue1(){
                       '    <option value="MALE">Male</option>'+
                       '    <option value="FEMALE">Female</option>'+
                       '</select>'); 
-    $('#text').append('<button type="button" class="btn btn-primary" id="btn_start_continue2" onclick="_start_continue2()">Continue</button>');  
+    $('#text').append('<br/><button type="button" class="btn btn-primary" id="btn_start_continue2" onclick="_start_continue2()">Continue</button>');  
 }
 function _start_continue2(){
     $('#btn_start_continue2').remove();
@@ -103,7 +103,7 @@ function _start_continue2(){
             
 
             text+=('<div class="col-2">');
-            text+=('<button type="button" id="start-btn-up-'+key+'" class="btn btn-primary btn-sm" onclick="_start_attr_up(\''+key+'\')"><i class="fa fa-angle-up"></i></button>');
+            text+=('<button type="button" id="start-btn-up-'+key+'" class="btn btn-primary btn-sm" onclick="_start_attr_up(\''+key+'\')" ><i class="fa fa-angle-up"></i></button>');
             text+=('</div>');
             
             text+=('<div class="col-2">');
@@ -112,8 +112,11 @@ function _start_continue2(){
         text+=('</div>');
     }
     text+=('</div>');
-    text+=('<button type="button" class="btn btn-primary" onclick="start_continue2()">Continue</button>'); 
+    text+=('<br/><button type="button" class="btn btn-primary" onclick="start_continue3()" id="btn_start_continue3" disabled>Continue</button>'); 
     $('#text').append(text);
+}
+function _start_continue3(){
+    alert('salvar!')
 }
 function _start_attr_down(key){
     GAME.main.pointsToDistribute++;
@@ -143,4 +146,9 @@ function _doDisableButtons(){
             $('#start-btn-down-'+any).prop('disabled', false);
         }
     } 
+    if(GAME.main.pointsToDistribute==0){
+        $('#btn_start_continue3').prop('disabled', false);
+    }else{
+        $('#btn_start_continue3').prop('disabled', true);
+    }
 }
