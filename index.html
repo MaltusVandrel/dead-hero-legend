@@ -2,21 +2,29 @@
 <html>
 <head>
 <title>Dead Hero Legend</title>
-<link type="text/css" href="/css/mini-dark.min.css" rel='stylesheet'/>
 <link type="text/css" href="/css/main.css" rel='stylesheet'/>
-<link type="text/css" href="/game/widget/map/map-page.css" rel='stylesheet'/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
 <body>
-
-<h1>This is a game in the making</h1>
-<div id="text">
-
+<div class='container-fluid border border-dark'>
+    <div class="row">
+    <div class='col-3'></div>
+    <div class='col-6 border border-dark' id="text">
+        Here will be text
+    </div>
+    <div class='col-3'></div>
+    </div>
 </div>
-<button onclick="showMap()">abrir mapa</button>
+
 <div id='portrait'></div>
+
 <script type="text/javascript" src="/lib/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!--
 <script type="text/javascript" src="/lib/svg.min.js"></script>
 
 <script type="text/javascript" src="/game/helpers/general.js"></script>
@@ -36,7 +44,8 @@
 <script type="text/javascript" src="/game/main.js"></script>
 
 <script type="text/javascript" src="/game/widget/map/map-page.js"></script>
-
+-->
+<script type="text/javascript" src="/game/main.js"></script>
 
 </body>
 </html>
