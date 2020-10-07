@@ -1,4 +1,19 @@
 <p>What is your name?</p>
-<input type="text" class="form-control" id="start-name"> 
+<input type="text" class="form-control" id="start-name" onchange="_enableContinue()"> 
 <br/> 
-<button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="continueStart()">Continue</button>
+<button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_continue()" disabled>Continue</button>
+<script type="text/javascript">
+    GAME.isStarted=true;
+    GAME.main={...ATRIBUTES};
+    GAME.main.pointsToDistribute=6;
+    function _enableContinue(){
+        if($('#start-name').val().trim().length>3){
+            $('#btn_start_continue1').prop('disabled', false);
+        }else{
+            $('#btn_start_continue1').prop('disabled', true);
+        }
+    }
+    function _continue(){
+        GAME.main.name=$('#start-name').val();        
+    }
+</script>
