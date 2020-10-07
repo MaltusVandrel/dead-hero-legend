@@ -1,42 +1,12 @@
-/*
-var mapPage;
-$.get( "game/widget/map/map-page.html", function( data ) {
-    mapPage=data;
-});
-var game={};
-game.place=baseOne;
-
-function showMap(){
-    var div = $El('div');
-    div.html(mapPage);
-    div.attr('id','root_div_map');
-    $('body').append(div);
-    game.map.init();   
-}
-function closeMap(){
-    $("#root_div_map" ).remove();   
-}
-/*
-
-usar pngs e 
-  background-image: linear-gradient(red, red),url("paper.gif");
-  background-blend-mode: color;
-*/
-
-/**
- *
- * Ungly code is only ungly when undocumented and unreadable. 
- * 
- **/
-/* IT Shoud go to helper*/
-
-/* IT maybe go to conf, but if its not get crowded, keeps here */
-
-/* IT Must stay in main*/
-var GAME={};
-if(localStorage.getItem('save1')!=undefined)GAME=JSON.parse(localStorage.getItem('save1'));
 
 
-if(!GAME.isStarted){
-  start();          
-}
+var GAME={scene:"START001"};
+if(getStorage('save1')!=undefined&&getStorage('save1')!="undefined")GAME=fromJson(getStorage('save1'));
+scene(GAME.scene);         
+
+
+//criar digest layout if, for and binding
+//criar conts de scenes
+//organizar scenes
+//terminar start
+//washing ashore

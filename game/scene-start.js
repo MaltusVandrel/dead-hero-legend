@@ -2,24 +2,24 @@ function start(){
     GAME.isStarted=true;
     GAME.main={...ATRIBUTES};
     GAME.main.pointsToDistribute=6;
-    $('#text').html('');
-    $('#text').append("<p>What is your name?</p>")
-    $('#text').append('<input type="text" class="form-control" id="start-name"> <br/> <button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_start_continue1()">Continue</button>');  
-    
+    clearText();
+    addText("<p>What is your name?</p>")
+    addText('<input type="text" class="form-control" id="start-name"> <br/> <button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_start_continue1()">Continue</button>');  
+    showText();
 }
 function _start_continue1(){
-    $('#btn_start_continue1').remove();
+    $('btn_start_continue1').remove();
     GAME.main.name=$('#start-name').val();
-    $('#text').append("<p>"+GAME.main.name+", What is your biological sex?</p>")
-    $('#text').append('<select class="form-control" id="start-sex">'+
+    addText("<p>"+GAME.main.name+", What is your biological sex?</p>")
+    addText('<select class="form-control" id="start-sex">'+
                       '    <option value="MALE">Male</option>'+
                       '    <option value="FEMALE">Female</option>'+
                       '</select>'); 
-    $('#text').append('<br/><button type="button" class="btn btn-primary" id="btn_start_continue2" onclick="_start_continue2()">Continue</button>');  
+    addText('<br/><button type="button" class="btn btn-primary" id="btn_start_continue2" onclick="_start_continue2()">Continue</button>');  
 }
 function _start_continue2(){
     $('#btn_start_continue2').remove();
-    GAME.main.name=$('#start-name').val();
+    GAME.main.sex=$('#start-name').val();
     var text="";
     text+=("<p>Choose your attributes: (Max:2), <span id='start-remaining-attr'>(remaining:"+GAME.main.pointsToDistribute+")</span></p>");
     text+=('<div class="container-fluid">')
@@ -48,7 +48,7 @@ function _start_continue2(){
     }
     text+=('</div>');
     text+=('<br/><button type="button" class="btn btn-primary" onclick="_start_continue3()" id="btn_start_continue3" disabled>Continue</button>'); 
-    $('#text').append(text);
+    addText(text);
 }
 function _start_continue3(){
     localStorage.setItem('save1', JSON.stringify(GAME));
