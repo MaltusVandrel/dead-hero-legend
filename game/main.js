@@ -1,7 +1,7 @@
 
 
 var GAME={scene:SCENES._001START_1};
-if(getStorage('save1')!=undefined&&getStorage('save1')!="undefined")GAME=fromJson(getStorage('save1'));
+//if(getStorage('save1')!=undefined&&getStorage('save1')!="undefined")GAME=fromJson(getStorage('save1'));
 setScene(GAME.scene);         
 
 

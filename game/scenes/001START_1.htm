@@ -3,7 +3,6 @@
 <br/> 
 <button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_continue()" disabled>Continue</button>
 <script type="text/javascript">
-    GAME.isStarted=true;
     GAME.main={...ATRIBUTES};
     GAME.main.pointsToDistribute=6;
     function _enableContinue(){
@@ -14,6 +13,7 @@
         }
     }
     function _continue(){
-        GAME.main.name=$('#start-name').val();        
+        GAME.main.name=$('#start-name').val();   
+        setScene(GAME._SCENES._001START_2);     
     }
 </script>
