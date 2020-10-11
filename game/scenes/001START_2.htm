@@ -1,0 +1,26 @@
+<p>"<span data-bind='GAME.main.name.split("")'></span>? Is that so?"</p>
+   <select class="form-control" id="start-sex">
+    <option value="MALE">Male</option>
+    <option value="FEMALE">Female</option>
+   </select> 
+   <br/>
+   <button type="button" class="btn btn-primary" id="btn_start_continue2" onclick="_continue()">Continue</button></p>
+<input type="text" class="form-control" id="start-name" onchange="_enableContinue()"> 
+<br/> 
+<button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_continue()" disabled>Continue</button>
+<script type="text/javascript">
+    
+   
+  
+    function _enableContinue(){
+        if($('#start-sex').val().trim().length>3){
+            $('#btn_start_continue1').prop('disabled', false);
+        }else{
+            $('#btn_start_continue1').prop('disabled', true);
+        }
+    }
+    function _continue(){
+        GAME.main.name=$('#start-name').val();   
+        setScene(SCENES._001START_2);     
+    }
+</script>

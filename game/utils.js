@@ -36,3 +36,17 @@ function doEvent(event){
 function observeEvent(event,action){
     document.addEventListener(event, action, false);
 }
+function dataBind(){
+    $("[data-bind]").each((index,element)=>{
+        var dataPath=$(element).data("bind");
+        console.info("Binding \""+dataPath+"\" in ",element);
+        $(element).html(eval(dataPath));
+    });
+}
+function firstName(name){
+   if(name!=undefined&&name.length>0){
+    return name.trim().split(" ")[0];
+   }else{
+       return 'guy';
+   }
+}

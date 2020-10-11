@@ -1,19 +1,77 @@
-<p>What is your name?</p>
-<input type="text" class="form-control" id="start-name" onchange="_enableContinue()"> 
-<br/> 
-<button type="button" class="btn btn-primary" id="btn_start_continue1" onclick="_continue()" disabled>Continue</button>
+<div data-element-type='dialog' id="dialog-1">
+    <p>"Sea is a strange thing, it's alive, breathing and pulsing. 
+        More than that! It's a jealous entity, taking and ripping apart everything it wants with waves like titan arms, thundering screams, and greedy pulls from the everpresent currents; 
+        Yet... It's a lovable thing, a nurturing thing, fostering life and dreams, promising adventures and home, calling like a siren and shining beauty like a nymph. 
+        Sometimes even, over all its greed, giving gifts to their lovers and suitors;"
+    </p>
+    <p>"Maybe that's why I drifted there with all of my unconscious hope. &mdash; Good to know that my heart still dreams."</p>
+    <p>"Nothing but beauty for so long, the time is such of a meaningless thing for me that I can't even count waves anymore 
+        &mdash; If I could, maybe I would be crazy at this point; Or would I be saner?"
+    </p>
+    <p>"Then, so expected but of no short of surprise and happiness, I found such a sad thing."</p>
+    <p>"A drowned body, a hopeless grey thing; for now."</p>
+    <p><em>"Be back to what you were, raise dear unknown but soon to be friend!"</em></p>
+    <p>A body, half-decomposed, half-eaten, returned to a healthy, and more surprisingly, 
+        an alive state with its true soul flowing back from the ocean grip to its rightful owner.</p>
+    <p>It floated slowly and surely, pulled by the <strong>watcher</strong> force, unconscious yet protected.</p>   
+    <p>"Let's see what I caught."</p>
+    <p>The watcher inspected the floating one, permeating the peaceful unaware continuousness.</p> 
+    <p>The undrowned sensed a disembodied will, much like a voice but without sound, compelling to answer:</p>
+    <p>"What is your name, yet-to-be friend?"</p>
+    <input type="text" class="form-control" id="start-name_dialog-1" onkeyup="_enableContinue('dialog-1')"> 
+    <br/> 
+    <button type="button" class="btn btn-primary" id="btn_start_continue_dialog-1" onclick="_continue('dialog-2',setName,{dialog:'dialog-1'})" disabled>Answer</button>
+</div>
+<div data-element-type='dialog' id="dialog-2">
+<p>"<span data-bind='GAME.main.name'></span>? Is that so?"</p>
+<p>"<span data-bind='firstName(GAME.main.name)'></span>, you can change your name if you do want."</p>
+<button type="button" class="btn btn-primary" id="btn_start_yes" onclick="_continue('dialog-2_1')">I do want change it</button>
+&nbsp;
+<button type="button" class="btn btn-primary" id="btn_start_no" onclick="_continue('dialog-3')">It is my name</button>
+</div>
+<div data-element-type='dialog' id="dialog-2_1">
+    <p>"So, not-<span data-bind='firstName(GAME.main.name)'></span>, what is your name?"</p>
+    <input type="text" class="form-control" id="start-name_dialog-2_1" onkeyup="_enableContinue('dialog-2_1')">
+    <br/> 
+    <button type="button" class="btn btn-primary" id="btn_start_continue_dialog-2_1" onclick="_continue('dialog-2_2',setName,{dialog:'dialog-2_1'})" disabled>Answer</button>
+</div>
+<div data-element-type='dialog' id="dialog-2_2">
+    <p>"'<span data-bind='GAME.main.name'></span>', is that enough?"</p>
+    <button type="button" class="btn btn-primary" id="btn_start_yes" onclick="_continue('dialog-3')">Yes</button>
+    &nbsp;
+    <button type="button" class="btn btn-primary" id="btn_start_no" onclick="_continue('dialog-2_1')">No</button>
+</div>
+<div data-element-type='dialog' id="dialog-3">
+    <p>"'<span data-bind='GAME.main.name'></span>', is that enough?"</p>
+    <button type="button" class="btn btn-primary" id="btn_start_yes" onclick="_yes()">Yes</button>
+    &nbsp;
+    <button type="button" class="btn btn-primary" id="btn_start_no" onclick="_no()">No</button>
+</div>
+
+
+
 <script type="text/javascript">
     GAME.main={...ATRIBUTES};
     GAME.main.pointsToDistribute=6;
-    function _enableContinue(){
-        if($('#start-name').val().trim().length>3){
-            $('#btn_start_continue1').prop('disabled', false);
+    $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
+    $("#dialog-1").show();
+    
+    function _enableContinue(dialog){
+        
+        if($('#start-name_'+dialog).val()!=undefined&&$('#start-name_'+dialog).val().trim().length>3){
+            $('#btn_start_continue_'+dialog).prop('disabled', false);
         }else{
-            $('#btn_start_continue1').prop('disabled', true);
+            $('#btn_start_continue_'+dialog).prop('disabled', true);
         }
     }
-    function _continue(){
-        GAME.main.name=$('#start-name').val();   
-        setScene(GAME._SCENES._001START_2);     
+    var passo=0;
+    function setName(param){
+        GAME.main.name=$('#start-name_'+param.dialog).val();
+    }
+    function _continue(dialog,action,param){
+        if(action)action(param);
+        $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
+        $("#"+dialog).show();
+        dataBind();     
     }
 </script>
