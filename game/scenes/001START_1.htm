@@ -20,58 +20,96 @@
     <p>"What is your name, yet-to-be friend?"</p>
     <input type="text" class="form-control" id="start-name_dialog-1" onkeyup="_enableContinue('dialog-1')"> 
     <br/> 
-    <button type="button" class="btn btn-primary" id="btn_start_continue_dialog-1" onclick="_continue('dialog-2',setName,{dialog:'dialog-1'})" disabled>Answer</button>
+    <button type="button" class="btn btn-primary" id="btn_start_continue_dialog-1" onclick="doDialog('dialog-2',setName,{dialog:'dialog-1'})" disabled>Answer</button>
 </div>
 <div data-element-type='dialog' id="dialog-2">
 <p>"<span data-bind='GAME.main.name'></span>? Is that so?"</p>
-<p>"<span data-bind='firstName(GAME.main.name)'></span>, you can change your name if you do want."</p>
-<button type="button" class="btn btn-primary" id="btn_start_yes" onclick="_continue('dialog-2_1')">I do want change it</button>
+<p>"You know, <span data-bind='firstName(GAME.main.name)'></span>, you can change your name if you do want."</p>
+<button type="button" class="btn btn-primary" id="btn_start_yes" onclick="doDialog('dialog-2_1')">I do want change it</button>
 &nbsp;
-<button type="button" class="btn btn-primary" id="btn_start_no" onclick="_continue('dialog-3')">It is my name</button>
+<button type="button" class="btn btn-primary" id="btn_start_no" onclick="doDialog('dialog-3')">It <strong>is</strong> my name</button>
 </div>
 <div data-element-type='dialog' id="dialog-2_1">
     <p>"So, not-<span data-bind='firstName(GAME.main.name)'></span>, what is your name?"</p>
     <input type="text" class="form-control" id="start-name_dialog-2_1" onkeyup="_enableContinue('dialog-2_1')">
     <br/> 
-    <button type="button" class="btn btn-primary" id="btn_start_continue_dialog-2_1" onclick="_continue('dialog-2_2',setName,{dialog:'dialog-2_1'})" disabled>Answer</button>
+    <button type="button" class="btn btn-primary" id="btn_start_continue_dialog-2_1" onclick="doDialog('dialog-2_2',setName,{dialog:'dialog-2_1'})" disabled>Answer</button>
 </div>
 <div data-element-type='dialog' id="dialog-2_2">
     <p>"'<span data-bind='GAME.main.name'></span>', is that enough?"</p>
-    <button type="button" class="btn btn-primary" id="btn_start_yes" onclick="_continue('dialog-3')">Yes</button>
+    <button type="button" class="btn btn-primary" id="btn_start_yes" onclick="doDialog('dialog-3')">Yes</button>
     &nbsp;
-    <button type="button" class="btn btn-primary" id="btn_start_no" onclick="_continue('dialog-2_1')">No</button>
+    <button type="button" class="btn btn-primary" id="btn_start_no" onclick="doDialog('dialog-2_1')">No</button>
 </div>
 <div data-element-type='dialog' id="dialog-3">
-    <p>"'<span data-bind='GAME.main.name'></span>', is that enough?"</p>
-    <button type="button" class="btn btn-primary" id="btn_start_yes" onclick="_yes()">Yes</button>
-    &nbsp;
-    <button type="button" class="btn btn-primary" id="btn_start_no" onclick="_no()">No</button>
+    <span data-if="START.questioned==undefined">
+        <p>"So let us continue..."</p>
+        <button type="button" class="btn btn-primary" onclick="doDialog('dialog-3',()=>START.questioned=false)">Hold On!</button>&nbsp;
+        <button type="button" class="btn btn-primary" onclick="doDialog('dialog-4')">...</button>
+    </span>
+    <span data-if="START.questioned!=undefined">
+        <p>"Any other question, <span data-bind='firstName(GAME.main.name)'></span>?"</p>
+        <button data-if="START.who!=true" type="button" class="btn btn-primary" onclick="doDialog('dialog-3_who',who)">Who are you?</button>&nbsp;
+        <button data-if="START.where!=true" type="button" class="btn btn-primary" onclick="doDialog('dialog-3_where',where)">Where I am?</button>&nbsp;
+        <button data-if="START.what!=true" type="button" class="btn btn-primary" onclick="doDialog('dialog-3_what',what)">What are happening?</button>&nbsp;
+        <span data-if="START.questioned&&(START.why!=true)">
+            <button class="btn btn-primary" onclick="doDialog('dialog-3_why',why)">Why do you need me?</button>&nbsp;
+        </span>
+        <button data-if="START.request!=true" type="button" class="btn btn-primary" onclick="doDialog('dialog-3_request',request)">Release-me!</button>&nbsp;
+        <button type="button" class="btn btn-primary" onclick="doDialog('dialog-3_good')">No...</button>&nbsp;
+    </span>   
+</div>
+<div data-element-type='dialog' id="dialog-3_who">
+    <p>"I am Zargos, the Cursed, and current &mdash; against my will may I add &mdash; and keeper of the old Bastion and now, you can call me a fisher."</p>
+    <button type="button" class="btn btn-primary" onclick="doDialog('dialog-3')">...</button>
+</div>
+<div data-element-type='dialog' id="dialog-3_where">
+    <p>"We are in your mind, but your body are afloat on de sea."</p>
+    <p>As <span data-bind='firstName(GAME.main.name)'></span> hear it, a sudden fear took over. But <span data-if="START.who!=true" data-else="Zargos">the Watcher</span> readly attend to <span data-bind='firstName(GAME.main.name)'></span>'s .</p> 
+    <p>"Do not fret, you going to a safe beach in little time &mdash; I'm assure you."</p>
+    <button type="button" class="btn btn-primary" onclick="doDialog('dialog-3')">...</button>
+</div>
+<div data-element-type='dialog' id="dialog-3_what">
+    <p>"I'm just taking the liberty to know you in advance, since your next meeting may take a little too long. Plus, did I mention that I saved your live? I guess it's fair to me to have some healty curiosity, don't you think?"</p>
+    <p><span data-bind='firstName(GAME.main.name)'></span> did not feel like they could refuse, maybe for gratitude, but most problably because <span data-if="START.who!=true" data-else="Zargos">the Watcher</span> was overpowering <span data-bind='firstName(GAME.main.name)'></span>.</p> 
+    <p>"Rest assure, I will not hurt you."</p>
+    <button type="button" class="btn btn-primary" onclick="doDialog('dialog-3')">...</button>
+</div>
+<div data-element-type='dialog' id="dialog-3_why">
+    <p>"I am guilt to have hope in me. I need to be saved and I trully hope you could do that."</p>
+    <p><span data-bind='firstName(GAME.main.name)'></span> felt compelt to awnser yes to the request.</p> 
+    <p>"Oh, no! do not comit to me now. You are not in your... &mdash; right mind."</p>
+    <button type="button" class="btn btn-primary" onclick="doDialog('dialog-3')">...</button>
+</div>
+<div data-element-type='dialog' id="dialog-3_request">
+    <p>"Bold of you assume that I captured you in any way. The only thing I'm guilty is to save you and be unapologeticaly curious, but iven that is... necessary for the rescue."</p>
+    <p><span data-bind='firstName(GAME.main.name)'></span> couldn't argue.</p> 
+    <button type="button" class="btn btn-primary" onclick="doDialog('dialog-3')">...</button>
+</div>
+<div data-element-type='dialog' id="dialog-3_good">
+    <p>"Good! Let us continue then..."</p>
+    <button type="button" class="btn btn-primary" onclick="doDialog('dialog-4')">...</button>
 </div>
 
-
-
 <script type="text/javascript">
+    var START={};
     GAME.main={...ATRIBUTES};
     GAME.main.pointsToDistribute=6;
-    $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
-    $("#dialog-1").show();
-    
+    hideDialogs().but('dialog-1');   
+    function who(){START.who=true;}
+    function where(){START.where=true;}
+    function what(){START.what=true;}
+    function why(){START.why=true;}
+    function request (){START.request=true;}
     function _enableContinue(dialog){
-        
         if($('#start-name_'+dialog).val()!=undefined&&$('#start-name_'+dialog).val().trim().length>3){
             $('#btn_start_continue_'+dialog).prop('disabled', false);
         }else{
             $('#btn_start_continue_'+dialog).prop('disabled', true);
         }
     }
-    var passo=0;
     function setName(param){
         GAME.main.name=$('#start-name_'+param.dialog).val();
     }
-    function _continue(dialog,action,param){
-        if(action)action(param);
-        $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
-        $("#"+dialog).show();
-        dataBind();     
-    }
+   
 </script>
