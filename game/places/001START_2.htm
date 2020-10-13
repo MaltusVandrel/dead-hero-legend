@@ -35,13 +35,31 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-1_2">
-    <p>"I fret not, for your own good."</p>
+    <p>"I fret that i must say not, for your own good."</p>
     <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
     <p>"Let's begin."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
-
-
+<div data-element-type='dialog' id="dialog-1_3">
+    <p>"I knew you would understand, <span class='relevant' data-bind='firstName(GAME.main.name)'></span>."</p>
+    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
+    <p>"Let's begin."</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-1_4">
+    <p>"That's for safety, <span class='relevant' data-bind='firstName(GAME.main.name)'></span>, since our bond is forged throug my will, if I couldont identify the line between you and me, I could erase your identity by mistake."</p>
+    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> understood, but even if willing, they felt that they had no other option.</span></p>
+    <p>"Let's begin."</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-2">
+    <p>When you, my dear future friend,</p>
+    <p>"Oh! thats unfortunate yet wonderful." projected <span class='relevant' data-if="START.who!=true" data-else="Zargos">the Watcher</span>  "You are sealed &mdash; probably by the sea's fault &mdash; against my curiosity. Just wonderful, but bothersome."</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_1')">Aha!</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2')">So can we skip this?</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_3')">I will Answer anyway</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_4')">Why do you need more than my name?</button>&nbsp;
+</div>
 
 
 <script type="text/javascript">
