@@ -88,7 +88,7 @@
 </div>
 <div data-element-type='dialog' id="dialog-3_good">
     <p>"Good! Let us continue then..."</p>
-    <button type="button" class="btn btn-primary" onclick="doDialog('dialog-4')">...</button>
+    <button type="button" class="btn btn-primary" onclick="_continue()">...</button>
 </div>
 
 <script type="text/javascript">
@@ -110,6 +110,9 @@
     }
     function setName(param){
         GAME.main.name=$('#start-name_'+param.dialog).val();
+    }
+    function _continue(){
+        setScene(SCENES._001START_2);
     }
    
 </script>
