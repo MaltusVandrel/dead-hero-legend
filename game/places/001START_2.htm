@@ -1,0 +1,39 @@
+<div data-element-type='dialog' id="dialog-1">
+    <p>The entity <span class='relevant' data-if="START.who!=true" data-else="Zargos"> Watcher</span> tried to  
+    </p>
+    <p>"Maybe that's why I drifted there with all of my unconscious hope. &mdash; Good to know that my heart still dreams."</p>
+    <p>"Nothing but beauty for so long, the time is such of a meaningless thing for me that I can't even count waves anymore 
+        &mdash; If I could, maybe I would be crazy at this point; Or would I be saner?"
+    </p>
+    <p>"Then, so expected but of no short of surprise and happiness, I found such a sad thing."</p>
+    <p>"A drowned body, a hopeless grey thing; for now."</p>
+    <p><em>"Be back to what you were, raise dear unknown but soon to be friend!"</em></p>
+    <p>A body, half-decomposed, half-eaten, returned to a healthy, and more surprisingly, 
+        an alive state with its true soul flowing back from the ocean grip to its rightful owner.</p>
+    <p>It floated slowly and surely, pulled by the <strong>watcher</strong> force, unconscious yet protected.</p>   
+    <p>"Let's see what I caught."</p>
+    <p>The watcher inspected the floating one, permeating the peaceful unaware continuousness.</p> 
+    <p>The undrowned sensed a disembodied will, much like a voice but without sound, compelling to answer:</p>
+    <p>"What is your name, yet-to-be friend?"</p>
+    <input type="text" class="form-control" id="start-name_dialog-1" onkeyup="_enableContinue('dialog-1')"> 
+    <br/> 
+    <button type="button" class="btn btn-secondary" id="btn_start_continue_dialog-1" onclick="doDialog('dialog-2',setName,{dialog:'dialog-1'})" disabled>Answer</button>
+</div>
+<script type="text/javascript">
+    hideDialogs().but('dialog-1');   
+    
+    function _enableContinue(dialog){
+        if($('#start-name_'+dialog).val()!=undefined&&$('#start-name_'+dialog).val().trim().length>3){
+            $('#btn_start_continue_'+dialog).prop('disabled', false);
+        }else{
+            $('#btn_start_continue_'+dialog).prop('disabled', true);
+        }
+    }
+    function setName(param){
+        GAME.main.name=$('#start-name_'+param.dialog).val();
+    }
+    function _continue(){
+        setPlace(PLACES._001START_2);
+    }
+   
+</script>

@@ -1,8 +1,8 @@
 
 
-var GAME={scene:SCENES._001START_1};
+var GAME={place:PLACES._001START_1};
 //if(getStorage('save1')!=undefined&&getStorage('save1')!="undefined")GAME=fromJson(getStorage('save1'));
-setScene(GAME.scene);         
+setPlace(GAME.place);         
 
 
 //criar digest layout if, for and binding
