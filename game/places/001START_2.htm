@@ -1,5 +1,5 @@
 <div data-element-type='dialog' id="dialog-1">
-    <p>The entity <span class='relevant' data-if="START.who!=true" data-else="Zargos"> Watcher</span> 
+    <p>The entity <span class='relevant' data-if="START.who!=true" data-else="Zargos">Watcher</span> 
         sliped it's tendrils to <span class='relevant' data-bind='firstName(GAME.main.name)'></span> deeper mind, with clear intent to build a full concept of his, hopefully, future friend. Not that his defenseless companion could know that, much for they stress.</p>
     <p>Then a sudden stop took both by surprise.</p>
     <p>"Oh! thats unfortunate yet wonderful." projected <span class='relevant' data-if="START.who!=true" data-else="Zargos">the Watcher</span>  "You are sealed &mdash; probably by the sea's fault &mdash; against my curiosity. Just wonderful, but bothersome."</p>
@@ -53,32 +53,88 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-2">
-    <p>"My dear friend, which one of the following feel like your main <em>forte</em> when you interact with your peers"</p>
-    <ul>
-        <li><strong>Innovation</strong>:You captive with inventiveness;</li>
-        <li><strong>Passion</strong>: You connect with emotion;</li>
-        <li><strong>Power</strong>: You lead with assertiveness;</li>
-        <li><strong>Prestige</strong>: You set higher standards;</li>
-        <li><strong>Trust</strong>: You build respect with stability;</li>
-        <li><strong>Cunning</strong>: You communicate meaningfully;</li>
-        <li><strong>Control</strong>: You prevent with attention;</li>
-    </ul>
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_1')">Aha!</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2')">So can we skip this?</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_3')">I will Answer anyway</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_4')">Why do you need more than my name?</button>&nbsp;
+    <p>"<span class='relevant' data-bind='firstName(GAME.main.name)'></span>, which one of the following feel like your main <em>forte</em> when you interact with your peers"</p>
+    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","INNOVATION")' onmouseout='hideExpressionDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'INNOVATION')">Innovation</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","PASSION")' onmouseout='hideExpressionDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'PASSION')">Passion</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","POWER")' onmouseout='hideExpressionDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'POWER')">Power</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","PRESTIGE")' onmouseout='hideExpressionDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'PRESTIGE')">Prestige</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","TRUST")' onmouseout='hideExpressionDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'TRUST')">Trust</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","CUNNING")' onmouseout='hideExpressionDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'CUNNING')">Cunning</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","KEEN")' onmouseout='hideExpressionDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'KEEN')">Control</button>&nbsp;
+    <br/>
+    <div id='expression-details-1'></div>
 </div>
-
+<div data-element-type='dialog' id="dialog-2_1">
+    <p>"<span class='relevant' data-bind='EXPRESSIONS[GAME.main.personality.expression.main].label'></span>, interesting... in a minor intensity but with the same relevance, do you have a second <em>style</em>?"</p>
+    <button type="button" data-if="GAME.main.personality.expression.main!='INNOVATION'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","INNOVATION")' onmouseout='hideExpressionDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'INNOVATION')">Innovation</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='PASSION'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","PASSION")' onmouseout='hideExpressionDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PASSION')">Passion</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='POWER'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","POWER")' onmouseout='hideExpressionDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'POWER')">Power</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='PRESTIGE'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","PRESTIGE")' onmouseout='hideExpressionDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PRESTIGE')">Prestige</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='TRUST'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","TRUST")' onmouseout='hideExpressionDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'TRUST')">Trust</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='CUNNING'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","CUNNING")' onmouseout='hideExpressionDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'CUNNING')">Cunning</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='KEEN'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","KEEN")' onmouseout='hideExpressionDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'KEEN')">Control</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_2',setAuxiliarExpression,GAME.main.personality.expression.main)">No, I'm totally like this</button>&nbsp;
+    <br/>
+    <div id='expression-details-2'></div>
+</div>
+<div data-element-type='dialog' id="dialog-2_2">
+    <p>"So your actions talk in a '<span class='relevant' data-bind='EXPRESSIONS[GAME.main.personality.expression.main].label'></span>' manner
+        <span data-if='GAME.main.personality.expression.main!=GAME.main.personality.expression.auxiliar'> with a hint of '<span class='relevant' data-bind='EXPRESSIONS[GAME.main.personality.expression.auxiliar].label'></span>'</span>."</p>
+    <p>After a short pause, <span class='relevant' data-if="START.who!=true" data-else="Zargos">Watcher</span>  continued.</p>
+    <p>"Does that sounds right to you?"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_3')">Yes</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_4')">No</button>&nbsp;    
+</div>
+<div data-element-type='dialog' id="dialog-2_3">
+    <p>"Great! It does sond fitting to you. I'm anxious to 
+        <span data-if="GAME.main.personality.expression.main=='INNOVATION'">know your ideas</span> 
+        <span data-if="GAME.main.personality.expression.main=='PASSION'">bond with you</span> 
+        <span data-if="GAME.main.personality.expression.main=='POWER'">follow your jorney</span> 
+        <span data-if="GAME.main.personality.expression.main=='PRESTIGE'">learn from you</span> 
+        <span data-if="GAME.main.personality.expression.main=='TRUST'">have you as my friend</span> 
+        <span data-if="GAME.main.personality.expression.main=='CUNNING'">discuss your thoughts</span>
+        <span data-if="GAME.main.personality.expression.main=='KEEN'">you to share your vision</span> with me! Let's continue!"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3')">...</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-2_4">
+    <p>"Alright, let's try that again."</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-3">
+    <p>""</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3')">...</button>&nbsp;
+</div>
 
 <script type="text/javascript">
     hideDialogs().but('dialog-1');   
-    
+    GAME.main.personality={
+        expression:{main:'',auxiliar:''},
+        behavior:{energy:'', perspective:'', reasoning:'', approach:'', attitude:''},
+        objective:{root:'',approach:''},
+        moral:0,
+        empathy:0,
+        estability:0,
+        traits:[]};
+        
+    function showExpressionDetails(key,expression){
+        $("#"+key).html(EXPRESSIONS[expression].description);
+    }
+    function hideExpressionDetails(key){
+        $("#"+key).html("");
+    }
+
     function _enableContinue(dialog){
         if($('#start-name_'+dialog).val()!=undefined&&$('#start-name_'+dialog).val().trim().length>3){
             $('#btn_start_continue_'+dialog).prop('disabled', false);
         }else{
             $('#btn_start_continue_'+dialog).prop('disabled', true);
         }
+    }
+    function setMainExpression(expression){
+        GAME.main.personality.expression.main=expression;
+    }
+    function setAuxiliarExpression(expression){
+        GAME.main.personality.expression.auxiliar=expression;
     }
     function _continue(){
         setPlace(PLACES._001START_2);
