@@ -56,6 +56,10 @@ function dataBind(){
         var dataPath=$(element).data("bind");
         $(element).html(eval(dataPath));
     });
+    $("[data-bind-value]").each((index,element)=>{
+        var dataPath=$(element).data("bind-value");
+        $(element).val(eval(dataPath));
+    });
     
     
 }
