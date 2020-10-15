@@ -7,6 +7,74 @@ var EXPRESSIONS={
     CUNNING:{label:"Cunning",description:"Communicate meaningfully."},
     KEEN:{label:"Keen",description:"Prevent with attention"}
 };
+var OBJECTIVES={
+    SOCIAL:{
+        label:"Social",description:"Live in society and bond with peers",
+        approaches:{
+            BELONGING:{
+                label:"Belonging",
+                classification:"Citizen"            
+            }, 
+            JOY:{
+                label:"Joy",
+                classification:"Jester"
+            }, 
+            INTIMACY:{
+                label:"Intimacy",
+                classification:"Lover"
+            }
+        }
+    },
+    EGO:{label:"Legacy",description:"Make a Legacy and be remembered",
+    approaches:{
+        CHANGE:{
+            label:"Change",
+            classification:"Rebel"            
+        }, 
+        POWER:{
+            label:"Power",
+            classification:"Wizard"
+        }, 
+        EXCELENCE:{
+            label:"Excelence",
+            classification:"Warrior"
+        }
+    }
+},
+    CALLING:{label:"Calling",description:"Find liberty and commune with something bigger",
+    approaches:{
+        PEACE:{
+            label:"Peace",
+            classification:"Saint"            
+        }, 
+        COMPREENTION:{
+            label:"Compreention",
+            classification:"Sage"
+        }, 
+        FREEDOM:{
+            label:"Freedom",
+            classification:"Hermit"
+        }
+    }
+},
+    ORDER:{label:"Order",description:"Make a better World and spread order",
+    approaches:{
+        INOVATION:{
+            label:"Inovation",
+            classification:"Inventor"            
+        }, 
+        AUTHORITY:{
+            label:"Authority",
+            classification:"Ruler"
+        }, 
+        DUTY:{
+            label:"Duty",
+            classification:"Keeper"
+        }
+    }
+}
+}
+
 //TODO
 var EXPRESSION_ARCHETYPES={
     INNOVATION:{
