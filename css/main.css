@@ -2,3 +2,6 @@
     font-weight: bold;
     text-transform: capitalize;
 }
+.lowercase{
+    text-transform: lowercase !important;
+}

@@ -15,20 +15,6 @@ function setStorage(key,val){
     localStorage.setItem(key,val);
 }
 
-var textPanel;
-function clearText(){
-    $('#text').html('');
-    textPanel='';
-}
-function addText(str){
-    if(textPanel==undefined)textPanel='';
-    textPanel+=str;
-}
-function showText(){
-    $('#text').append(textPanel);
-    textPanel='';
-}
-
 function doEvent(event){
     var myCustomEvent = new Event(event);
     document.dispatchEvent(myCustomEvent);
@@ -36,6 +22,8 @@ function doEvent(event){
 function observeEvent(event,action){
     document.addEventListener(event, action, false);
 }
+
+
 function dataBind(){
     $("[data-if]").each((index,element)=>{
         var test=$(element).data("if");
@@ -63,12 +51,11 @@ function dataBind(){
     
     
 }
-function firstName(name){
-   if(name!=undefined&&name.length>0){
-    return name.trim().split(" ")[0];
-   }else{
-       return 'guy';
-   }
+function doDialog(dialog,action,param){
+    if(action)action(param);
+    $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
+    $("#"+dialog).show();
+    dataBind();     
 }
 function hideDialogs(){
     $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
@@ -76,9 +63,15 @@ function hideDialogs(){
         $("#"+dialog).show();
     }};
 }
-function doDialog(dialog,action,param){
-    if(action)action(param);
-    $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
-    $("#"+dialog).show();
-    dataBind();     
+
+
+function firstName(name){    
+   if(name!=undefined&&name.length>0){
+    return name.trim().split(" ")[0];
+   }else{
+    if(name==undefined&&GAME.main.name!=undefined){
+        return firstName(GAME.main.name);
+    }   
+    return 'guy';
+   }
 }

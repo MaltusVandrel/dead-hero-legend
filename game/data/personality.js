@@ -1,11 +1,11 @@
 var EXPRESSIONS={
-    INNOVATION:{label:"Innovation",description:"Captivate with inventiveness."},
-    PASSION:{label:"Passion",description:"Connect with emotion."},
-    POWER:{label:"Power",description:"Lead with assertiveness."},
-    PRESTIGE:{label:"Prestige",description:"Set higher standards."},
-    TRUST:{label:"Trust",description:"Earn respect by stability."},
-    CUNNING:{label:"Cunning",description:"Communicate meaningfully."},
-    KEEN:{label:"Keen",description:"Prevent with attention"}
+    INNOVATION:{label:"Innovation",description:"Captivate with inventiveness.",adjective:"Creative"},
+    PASSION:{label:"Passion",description:"Connect with emotion.",adjective:"Passionate"},
+    POWER:{label:"Power",description:"Lead with assertiveness.",adjective:"Powerful"},
+    PRESTIGE:{label:"Prestige",description:"Set higher standards.",adjective:"Elegant"},
+    TRUST:{label:"Trust",description:"Earn respect by stability.",adjective:"Reliable"},
+    CUNNING:{label:"Cunning",description:"Communicate meaningfully.",adjective:"Clever"},
+    KEEN:{label:"Keen",description:"Prevent with attention",adjective:"Meticulous"}
 };
 var OBJECTIVES={
     SOCIAL:{
@@ -59,8 +59,8 @@ var OBJECTIVES={
 },
     ORDER:{label:"Order",description:"Make a better World and spread order",
     approaches:{
-        INOVATION:{
-            label:"Inovation",
+        INNOVATION:{
+            label:"INNOVATION",
             classification:"Inventor"            
         }, 
         AUTHORITY:{
