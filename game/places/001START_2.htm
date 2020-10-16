@@ -198,11 +198,11 @@
     <p>After a short stop, <span class='relevant' data-if="START.who!=true" data-else="Zargos">the Watcher</span>  continues.</p>
     <p>"Are you more grounded in your thoughts and objectives or your mind all too easly fly to wonders and focus in things that are yet to happen?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-perspective-details-1","PRATICAL")' 
+    onmouseover='showDetails("behaviour-perspective-details-1","PRATICAL",BEHAVIOUR.PERSPECTIVE["PRATICAL"].description)' 
     onmouseout='hideDetails("behaviour-perspective-details-1")' 
     onclick="doDialog('dialog-4_3',setPerspective,'PRATICAL')">Pratical</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-perspective-details-1","IMAGINATIVE")' 
+    onmouseover='showDetails("behaviour-perspective-details-1","IMAGINATIVE",BEHAVIOUR.PERSPECTIVE["IMAGINATIVE"].description)' 
     onmouseout='hideDetails("behaviour-perspective-details-1")' 
     onclick="doDialog('dialog-4_3',setPerspective,'IMAGINATIVE')">Wonder-driven</button>&nbsp;
     <div id='behaviour-perspective-details-1'></div>
@@ -212,11 +212,11 @@
     <p data-if="GAME.main.behavior.energy=='IMAGINATIVE'">"It must be great to hear your wondering thoughts."</p>
     <p>"Do your mind or your heart reing over you?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-reasoning-details-1","RATIONAL")' 
+    onmouseover='showDetails("behaviour-reasoning-details-1","RATIONAL",BEHAVIOUR.REASONING["RATIONAL"].description)' 
     onmouseout='hideDetails("behaviour-reasoning-details-1")' 
     onclick="doDialog('dialog-4_4',setReasoning,'RATIONAL')">Mind</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-reasoning-details-1","EMOTIONAL")' 
+    onmouseover='showDetails("behaviour-reasoning-details-1","EMOTIONAL",BEHAVIOUR.REASONING["EMOTIONAL"].description)' 
     onmouseout='hideDetails("behaviour-reasoning-details-1")' 
     onclick="doDialog('dialog-4_4',setReasoning,'EMOTIONAL')">Heart</button>&nbsp;
     <div id='behaviour-reasoning-details-1'></div>
@@ -226,11 +226,11 @@
     <p data-if="GAME.main.behavior.energy=='EMOTIONAL'">"A feeling-driven one. Intriguing."</p>
     <p>"Do you like to improvise or preffer to stick to the plan?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-approuch-details-1","IMPROVISED")' 
+    onmouseover='showDetails("behaviour-approuch-details-1","IMPROVISED",BEHAVIOUR.APPROUCH["IMPROVISED"].description)' 
     onmouseout='hideDetails("behaviour-approuch-details-1")' 
     onclick="doDialog('dialog-4_5',setApprouch,'IMPROVISED')">Improvise</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-approuch-details-1","PLANED")' 
+    onmouseover='showDetails("behaviour-approuch-details-1","PLANED",BEHAVIOUR.APPROUCH["PLANED"].description)' 
     onmouseout='hideDetails("behaviour-approuch-details-1")' 
     onclick="doDialog('dialog-4_5',setApprouch,'PLANED')">Stick to the plan</button>&nbsp;
     <div id='behaviour-approuch-details-1'></div>
@@ -240,16 +240,35 @@
     <p data-if="GAME.main.behavior.energy=='PLANED'">"Well prepared. Admirable."</p>
     <p>"Do you stress over your responsibilities and strive for excellence?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-attitude-details-1","DRIVEN")' 
+    onmouseover='showDetails("behaviour-attitude-details-1","DRIVEN",BEHAVIOUR.ATTITUDE["DRIVEN"].description)' 
     onmouseout='hideDetails("behaviour-attitude-details-1")' 
-    onclick="doDialog('dialog-4_5',setAttitude,'DRIVEN')">Yes</button>&nbsp;
+    onclick="doDialog('dialog-4_6',setAttitude,'DRIVEN')">Yes</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-attitude-details-1","RELAXED")' 
+    onmouseover='showDetails("behaviour-attitude-details-1","RELAXED",BEHAVIOUR.ATTITUDE["RELAXED"].description)' 
     onmouseout='hideDetails("behaviour-attitude-details-1")' 
-    onclick="doDialog('dialog-4_5',setAttitude,'RELAXED')">No</button>&nbsp;
+    onclick="doDialog('dialog-4_6',setAttitude,'RELAXED')">No</button>&nbsp;
     <div id='behaviour-attitude-details-1'></div>
 </div>
-
+<div data-element-type='dialog' id="dialog-4_6">
+    <p data-if="GAME.main.behavior.energy=='DRIVEN'">"Someone focused, just what I needed!"</p>
+    <p data-if="GAME.main.behavior.energy=='RELAXED'">"So you take your time, that's fine, but I beg your help."</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_7')">...</button>&nbsp;    
+</div>
+<div data-element-type='dialog' id="dialog-4_7">
+    <p>"So you are a 
+        <span class='relevant lowercase' data-bind='BEHAVIOUR.ENERGY[GAME.main.behavior.energy].label'></span>
+        with a <span class='relevant lowercase' data-bind='BEHAVIOUR.PERSPECTIVE[GAME.main.behavior.perspective].label'></span> perspective, 
+        <span class='relevant lowercase' data-bind='BEHAVIOUR.REASONING[GAME.main.behavior.reasoning].label'></span> reasoning,
+        <span class='relevant lowercase' data-bind='BEHAVIOUR.APPROUCH[GAME.main.behavior.approach].label'></span> approach and 
+        a <span class='relevant lowercase' data-bind='BEHAVIOUR.ATTITUDE[GAME.main.behavior.attitude].label'></span> attitude..."</p>
+    <p><span class='relevant' data-if="START.who!=true" data-else="Zargos">Watcher</span> make a pause, then 'utters'.</p>
+    <p>"You are like a <span data-if='GAME.main.behavior.approach=="PLANED"' data-else="charming">trusty</span> <span data-if='GAME.main.behavior.reasoning=="EMOTIONAL"' data-else="sun">moon</span> 
+        <span data-if='GAME.main.behavior.energy=="INTROVERT"' data-else="dawning">dusking</span> over 
+        <span data-if='GAME.main.behavior.perspective=="PRATICAL"' data-else="seas">mountains</span> bathing all with 
+        <span data-if='GAME.main.behavior.attitude=="RELAXED"' data-else="revealing">calming</span>"
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_flirting')">Are you flirting?</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_8')">Are you flirting?</button>&nbsp;
+</div>
 <script type="text/javascript">
     hideDialogs().but('dialog-1');  
     
