@@ -1,8 +1,8 @@
-<div data-element-type='dialog' id="dialog-1">
-    <p>The entity <span class='relevant' data-if="START.who!=true" data-else="Zargos">Watcher</span> 
-        sliped it's tendrils to <span class='relevant' data-bind='firstName(GAME.main.name)'></span> deeper mind, with clear intent to build a full concept of his, hopefully, future friend. Not that his defenseless companion could know that, much for they stress.</p>
+<div data-first-element data-element-type='dialog' id="dialog-1">
+    <p>The entity <span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">Watcher</span> 
+        sliped it's tendrils to <span class='relevant' data-bind='firstName()'></span> deeper mind, with clear intent to build a full concept of his, hopefully, future friend. Not that his defenseless companion could know that, much for they stress.</p>
     <p>Then a sudden stop took both by surprise.</p>
-    <p>"Oh! thats unfortunate yet wonderful." projected <span class='relevant' data-if="START.who!=true" data-else="Zargos">the Watcher</span>  "You are sealed &mdash; probably by the sea's fault &mdash; against my curiosity. Just wonderful, but bothersome."</p>
+    <p>"Oh! thats unfortunate yet wonderful." projected <span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">the Watcher</span>  "You are sealed &mdash; probably by the sea's fault &mdash; against my curiosity. Just wonderful, but bothersome."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_1')">Aha!</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2')">So can we skip this?</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_3')">I will Answer anyway</button>&nbsp;
@@ -10,7 +10,7 @@
 </div>
 <div data-element-type='dialog' id="dialog-1_1">
     <p>"It's not funny my dear yet-to-know-friend! If I don't know you well, I may erase your personality by mistake!"</p>
-    <p>A shiver took <span class='relevant' data-bind='firstName(GAME.main.name)'>'s countiousness.</span></p>
+    <p>A shiver took <span class='relevant' data-bind='firstName()'></span>'s countiousness.</p>
     <p>"Do not be fraid, I am determined to keep you intact as I can."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2_1')">Shit!</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2_2')">Thank you?</button>&nbsp;
@@ -18,42 +18,42 @@
 </div>
 <div data-element-type='dialog' id="dialog-1_2_1">
     <p>"Be not afraid, I assure you that I learned from my past mistakes, you sure will be fine!"</p>
-    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
+    <p><span class='relevant' data-bind='firstName()'></span> felt that they had no other option.</p>
     <p>"Let's begin."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-1_2_2">
     <p>"You are more than welcome!"</p>
-    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
+    <p><span class='relevant' data-bind='firstName()'></span> felt that they had no other option.</p>
     <p>"Let's begin."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-1_2">
     <p>"I fret not, for your own good."</p>
-    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
+    <p><span class='relevant' data-bind='firstName()'></span> felt that they had no other option.</p>
     <p>"Let's begin."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-1_2">
     <p>"I fret that i must say not, for your own good."</p>
-    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
+    <p><span class='relevant' data-bind='firstName()'></span> felt that they had no other option.</p>
     <p>"Let's begin."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-1_3">
-    <p>"I knew you would understand, <span class='relevant' data-bind='firstName(GAME.main.name)'></span>."</p>
-    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
+    <p>"I knew you would understand, <span class='relevant' data-bind='firstName()'></span>."</p>
+    <p><span class='relevant' data-bind='firstName()'></span> felt that they had no other option.</p>
     <p>"Let's begin."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-1_4">
-    <p>"That's for safety, <span class='relevant' data-bind='firstName(GAME.main.name)'></span>, since our bond is forged throug my will, if I couldont identify the line between you and me, I could erase your identity by mistake."</p>
-    <p><span class='relevant' data-bind='firstName(GAME.main.name)'> understood, but even if willing, they felt that they had no other option.</span></p>
+    <p>"That's for safety, <span class='relevant' data-bind='firstName()'></span>, since our bond is forged throug my will, if I couldont identify the line between you and me, I could erase your identity by mistake."</p>
+    <p><span class='relevant' data-bind='firstName()'></span> understood, but even if willing, they felt that they had no other option.</p>
     <p>"Let's begin."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-2">
-    <p>"<span class='relevant' data-bind='firstName(GAME.main.name)'></span>, which one of the following feel like your main <em>forte</em> when you interact with your peers"</p>
+    <p>"<span class='relevant' data-bind='firstName()'></span>, which one of the following feel like your main <em>forte</em> when you interact with your peers"</p>
     <button type="button" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-1","INNOVATION",EXPRESSIONS["INNOVATION"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'INNOVATION')">Innovation</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
@@ -72,42 +72,42 @@
     <div id='expression-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-2_1">
-    <p>"<span class='relevant' data-bind='EXPRESSIONS[GAME.main.personality.expression.main].label'></span>, interesting... in a minor intensity but with the same relevance, do you have a second <em>style</em>?"</p>
-    <button type="button" data-if="GAME.main.personality.expression.main!='INNOVATION'" class="btn btn-secondary" 
+    <p>"<span class='relevant' data-bind='EXPRESSIONS.main().label'></span>, interesting... in a minor intensity but with the same relevance, do you have a second <em>style</em>?"</p>
+    <button type="button" data-if="EXPRESSIONS.main().key!='INNOVATION'" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-2","INNOVATION",EXPRESSIONS["INNOVATION"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'INNOVATION')">Innovation</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='PASSION'" class="btn btn-secondary" 
+    <button type="button" data-if="EXPRESSIONS.main().key!='PASSION'" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-2","PASSION",EXPRESSIONS["PASSION"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PASSION')">Passion</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='POWER'" class="btn btn-secondary" 
+    <button type="button" data-if="EXPRESSIONS.main().key!='POWER'" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-2","POWER",EXPRESSIONS["POWER"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'POWER')">Power</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='PRESTIGE'" class="btn btn-secondary" 
+    <button type="button" data-if="EXPRESSIONS.main().key!='PRESTIGE'" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-2","PRESTIGE",EXPRESSIONS["PRESTIGE"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PRESTIGE')">Prestige</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='TRUST'" class="btn btn-secondary" 
+    <button type="button" data-if="EXPRESSIONS.main().key!='TRUST'" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-2","TRUST",EXPRESSIONS["TRUST"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'TRUST')">Trust</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='CUNNING'" class="btn btn-secondary" 
+    <button type="button" data-if="EXPRESSIONS.main().key!='CUNNING'" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-2","CUNNING",EXPRESSIONS["CUNNING"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'CUNNING')">Cunning</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='KEEN'" class="btn btn-secondary" 
+    <button type="button" data-if="EXPRESSIONS.main().key!='KEEN'" class="btn btn-secondary" 
     onmouseover='showDetails("expression-details-2","KEEN",EXPRESSIONS["KEEN"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'KEEN')">Control</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_2',setAuxiliarExpression,GAME.main.personality.expression.main)">No, I'm totally like this</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_2',setAuxiliarExpression,EXPRESSIONS.main().key)">No, I'm totally like this</button>&nbsp;
     <br/>
     <div id='expression-details-2'></div>
 </div>
 <div data-element-type='dialog' id="dialog-2_2">
-    <p>"So your actions talk in a '<span class='relevant' data-bind='EXPRESSIONS[GAME.main.personality.expression.main].label'></span>' manner
-        <span data-if='GAME.main.personality.expression.main!=GAME.main.personality.expression.auxiliar'> with a hint of '<span class='relevant' data-bind='EXPRESSIONS[GAME.main.personality.expression.auxiliar].label'></span>'</span>."</p>
-    <p>After a short pause, <span class='relevant' data-if="START.who!=true" data-else="Zargos">Watcher</span>  continued.</p>
+    <p>"So your actions talk in a '<span class='relevant' data-bind='EXPRESSIONS.main().label'></span>' manner
+        <span data-if='EXPRESSIONS.main().key!=EXPRESSIONS.auxiliar().key'> with a hint of '<span class='relevant' data-bind='EXPRESSIONS.auxiliar().label'></span>'</span>."</p>
+    <p>After a short pause, <span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">Watcher</span>  continued.</p>
     <p>"Does that sounds right to you?"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_3')">Yes</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_4')">No</button>&nbsp;    
 </div>
 <div data-element-type='dialog' id="dialog-2_3">
-    <p>"Great! It does sond fitting to you. I'm anxious to 
-        <span data-if="GAME.main.personality.expression.main=='INNOVATION'">know your ideas</span> 
-        <span data-if="GAME.main.personality.expression.main=='PASSION'">bond with you</span> 
-        <span data-if="GAME.main.personality.expression.main=='POWER'">follow your jorney</span> 
-        <span data-if="GAME.main.personality.expression.main=='PRESTIGE'">learn from you</span> 
-        <span data-if="GAME.main.personality.expression.main=='TRUST'">have you as my friend</span> 
-        <span data-if="GAME.main.personality.expression.main=='CUNNING'">discuss your thoughts</span>
-        <span data-if="GAME.main.personality.expression.main=='KEEN'">you to share your vision</span> with me! Let's continue!"</p>
+    <p>"Great! It does sound fitting to you. I'm anxious  
+        <span data-if="EXPRESSIONS.main().key=='INNOVATION'">to know your ideas</span> 
+        <span data-if="EXPRESSIONS.main().key=='PASSION'">to bond with you</span> 
+        <span data-if="EXPRESSIONS.main().key=='POWER'">to follow your jorney</span> 
+        <span data-if="EXPRESSIONS.main().key=='PRESTIGE'">to learn from you</span> 
+        <span data-if="EXPRESSIONS.main().key=='TRUST'">to have you as my friend</span> 
+        <span data-if="EXPRESSIONS.main().key=='CUNNING'">to discuss your thoughts</span>
+        <span data-if="EXPRESSIONS.main().key=='KEEN'">for you to share your vision with me</span>! Let's continue!"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-2_4">
@@ -117,13 +117,17 @@
 <div data-element-type='dialog' id="dialog-3">
     <p>"Which from those fit better with what you want to do with your life? You know, now that you have it back."</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("expression-root-details-1","SOCIAL",OBJECTIVES["SOCIAL"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_1',setRootObjective,'SOCIAL')">Live in society</button>&nbsp;
+    onmouseover='showDetails("expression-root-details-1","SOCIAL",OBJECTIVES["SOCIAL"].description)' 
+    onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_1',setRootObjective,'SOCIAL')">Live in society</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("expression-root-details-1","EGO",OBJECTIVES["EGO"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_2',setRootObjective,'EGO')">Make a Legacy</button>&nbsp;
+    onmouseover='showDetails("expression-root-details-1","EGO",OBJECTIVES["EGO"].description)' 
+    onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_2',setRootObjective,'EGO')">Make a Legacy</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("expression-root-details-1","CALLING",OBJECTIVES["CALLING"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_3',setRootObjective,'CALLING')">Find salvation</button>&nbsp;
+    onmouseover='showDetails("expression-root-details-1","CALLING",OBJECTIVES["CALLING"].description)' 
+    onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_3',setRootObjective,'CALLING')">Find salvation</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("expression-root-details-1","ORDER",OBJECTIVES["ORDER"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_4',setRootObjective,'ORDER')">Make a better World</button>&nbsp;
+    onmouseover='showDetails("expression-root-details-1","ORDER",OBJECTIVES["ORDER"].description)' 
+    onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_4',setRootObjective,'ORDER')">Make a better World</button>&nbsp;
      <div id='objective-root-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-3_1">
@@ -133,29 +137,29 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'INTIMACY')">Companionship and love</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_2">
-    <p>"An worty objective! What kind of mark you want to left behind, <span class='relevant' data-bind='firstName(GAME.main.name)'></span>?"</p>
+    <p>"An worty objective! What kind of mark you want to left behind, <span class='relevant' data-bind='firstName()'></span>?"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'CHANGE')">Change the world</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'POWER')">Fear and respect</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'EXCELENCE')">Remembered as the best</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_3">
-    <p>"I admit that there's something aluring in a higher purpose. What do you want go find in your jorney, <span class='relevant' data-bind='firstName(GAME.main.name)'></span>?"</p>
+    <p>"I admit that there's something aluring in a higher purpose. What do you want go find in your jorney, <span class='relevant' data-bind='firstName()'></span>?"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'PEACE')">A paradise</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'COMPREENTION')">Understand the world</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'FREEDOM')">True freedom</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_4">
-    <p>"So you are that kind of people, some of us must keep the world running, right? How do you want to do that, <span class='relevant' data-bind='firstName(GAME.main.name)'></span>?"</p>
+    <p>"So you are that kind of people, some of us must keep the world running, right? How do you want to do that, <span class='relevant' data-bind='firstName()'></span>?"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'INNOVATION')">Find new ways</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'AUTHORITY')">Rule and Organize</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_result',setApproachObjective,'DUTY')">Give my best</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_result">
-    <p>"So you want to 
-        <span class='relevant lowercase' data-bind='OBJECTIVES[GAME.main.personality.objective.root].description'></span>
+    <p>"So you are 
+        <span class='relevant lowercase' data-bind='OBJECTIVES.root().description'></span>
         and your approach is 
-        '<span class='relevant lowercase' data-bind='OBJECTIVES[GAME.main.personality.objective.root][GAME.main.personality.objective.approach].label'></span>',
-        You are much like an <span class='relevant lowercase' data-bind='OBJECTIVES[GAME.main.personality.objective.root][GAME.main.personality.objective.approach].classification'></span>.
+        '<span class='relevant lowercase' data-bind='OBJECTIVES.approach().label'></span>',
+        You are much like an <span class='relevant lowercase' data-bind='OBJECTIVES.approach().classification'></span>.
         That may not make sense, but it does feel right?"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_goback')">No</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_gofoward')">Yes</button>&nbsp;
@@ -165,15 +169,15 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_gofoward">
-    <p>"That's wonderful: <span class='relevant' data-bind='firstName(GAME.main.name)'></span>, The
-        <span class='relevant' data-bind='OBJECTIVES[GAME.main.personality.expression.main].adjective'></span> 
-        <span class='relevant' data-bind='OBJECTIVES[GAME.main.personality.objective.root][GAME.main.personality.objective.approach].classification'></span>!
-        <span data-if="GAME.main.personality.expression.main!=GAME.main.personality.expression.auxiliar">&mdash; A bit <span class='relevant' data-bind='OBJECTIVES[GAME.main.personality.expression.auxiliar].adjective'></span> too!</span>
-        <span data-if="GAME.main.personality.expression.main==GAME.main.personality.expression.auxiliar">&mdash; Very <span class='relevant' data-bind='OBJECTIVES[GAME.main.personality.expression.root].adjective'></span>!</span>"
+    <p>"That's wonderful: <span class='relevant' data-bind='firstName()'></span>, The
+        <span class='relevant' data-bind='EXPRESSIONS.main().adjective'></span> 
+        <span class='relevant' data-bind='OBJECTIVES.approach().classification'></span>!
+        <span data-if="EXPRESSIONS.main().key!=EXPRESSIONS.auxiliar().key">&mdash; And <span class='relevant' data-bind='EXPRESSIONS.auxiliar().adjective'></span> too!</span>
+        <span data-if="EXPRESSIONS.main().key==EXPRESSIONS.auxiliar().key">&mdash; Very <span class='relevant' data-bind='EXPRESSIONS.main().adjective'></span>!</span>"
     </p>
-    <p><span class='relevant' data-if="START.who!=true" data-else="Zargos">the Watcher</span> 'sounded' overjoyed and <span class='relevant' data-bind='firstName(GAME.main.name)'></span> couldn't help but to be intoxicated with the same feeling. Then the entity added.</p>
+    <p><span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">the Watcher</span> 'sounded' overjoyed and <span class='relevant' data-bind='firstName()'></span> couldn't help but to be intoxicated with the same feeling. Then the entity added.</p>
     <p>"Let's keep going, we doing progress!"</p>
-    <p>It was an invite, but it was not like <span class='relevant' data-bind='firstName(GAME.main.name)'></span> could deny.</p>
+    <p>It was an invite, but it was not like <span class='relevant' data-bind='firstName()'></span> could deny.</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-4">
@@ -183,89 +187,89 @@
 <div data-element-type='dialog' id="dialog-4_1">
     <p>"Do you gather more energy through personal endevours or communing with your peers? In another words, respectively, are you more... (?)"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-energy-details-1","INTROVERT",BEHAVIOUR.ENERGY["INTROVERT"].description)' 
+    onmouseover='showDetails("behaviour-energy-details-1","INTROVERT",BEHAVIOURS.ENERGY["INTROVERT"].description)' 
     onmouseout='hideDetails("behaviour-energy-details-1")' 
     onclick="doDialog('dialog-4_2',setEnergy,'INTROVERT')">Reserved</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-energy-details-1","EXTRAVERT",BEHAVIOUR.ENERGY["EXTRAVERT"].description)' 
+    onmouseover='showDetails("behaviour-energy-details-1","EXTRAVERT",BEHAVIOURS.ENERGY["EXTRAVERT"].description)' 
     onmouseout='hideDetails("behaviour-energy-details-1")' 
-    onclick="doDialog('dialog-4_1',setEnergy,'EXTRAVERT')">Gregarious</button>&nbsp;
+    onclick="doDialog('dialog-4_2',setEnergy,'EXTRAVERT')">Gregarious</button>&nbsp;
     <div id='behaviour-energy-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-4_2">
-    <p data-if="GAME.main.behavior.energy=='INTROVERT'">"So you are a quiet introspective one? Sorry for invade with such of a brute manner, but I guarantee it's necessary."</p>
-    <p data-if="GAME.main.behavior.energy=='EXTRAVERT'">"Oh, a quite sociable... person. I do need to remember to ask your gender later, would be a shame to forgot that."</p>
-    <p>After a short stop, <span class='relevant' data-if="START.who!=true" data-else="Zargos">the Watcher</span>  continues.</p>
+    <p data-if="BEHAVIOURS.energy().key=='INTROVERT'">"So you are a quiet introspective one? Sorry for invade with such of a brute manner, but I guarantee it's necessary."</p>
+    <p data-if="BEHAVIOURS.energy().key=='EXTRAVERT'">"Oh, a quite sociable... person. I do need to remember to ask your gender later, would be a shame to forgot that."</p>
+    <p>After a short stop, <span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">the Watcher</span>  continues.</p>
     <p>"Are you more grounded in your thoughts and objectives or your mind all too easly fly to wonders and focus in things that are yet to happen?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-perspective-details-1","PRATICAL",BEHAVIOUR.PERSPECTIVE["PRATICAL"].description)' 
+    onmouseover='showDetails("behaviour-perspective-details-1","PRATICAL",BEHAVIOURS.PERSPECTIVE["PRATICAL"].description)' 
     onmouseout='hideDetails("behaviour-perspective-details-1")' 
     onclick="doDialog('dialog-4_3',setPerspective,'PRATICAL')">Pratical</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-perspective-details-1","IMAGINATIVE",BEHAVIOUR.PERSPECTIVE["IMAGINATIVE"].description)' 
+    onmouseover='showDetails("behaviour-perspective-details-1","IMAGINATIVE",BEHAVIOURS.PERSPECTIVE["IMAGINATIVE"].description)' 
     onmouseout='hideDetails("behaviour-perspective-details-1")' 
     onclick="doDialog('dialog-4_3',setPerspective,'IMAGINATIVE')">Wonder-driven</button>&nbsp;
     <div id='behaviour-perspective-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-4_3">
-    <p data-if="GAME.main.behavior.energy=='PRATICAL'">"So you focus on the here and now, right? Must be wonderful to be your self angular stone."</p>
-    <p data-if="GAME.main.behavior.energy=='IMAGINATIVE'">"It must be great to hear your wondering thoughts."</p>
+    <p data-if="BEHAVIOURS.perspective().key=='PRATICAL'">"So you focus on the here and now, right? Must be wonderful to be your self angular stone."</p>
+    <p data-if="BEHAVIOURS.perspective().key=='IMAGINATIVE'">"It must be great to hear your wondering thoughts."</p>
     <p>"Do your mind or your heart reing over you?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-reasoning-details-1","RATIONAL",BEHAVIOUR.REASONING["RATIONAL"].description)' 
+    onmouseover='showDetails("behaviour-reasoning-details-1","RATIONAL",BEHAVIOURS.REASONING["RATIONAL"].description)' 
     onmouseout='hideDetails("behaviour-reasoning-details-1")' 
     onclick="doDialog('dialog-4_4',setReasoning,'RATIONAL')">Mind</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-reasoning-details-1","EMOTIONAL",BEHAVIOUR.REASONING["EMOTIONAL"].description)' 
+    onmouseover='showDetails("behaviour-reasoning-details-1","EMOTIONAL",BEHAVIOURS.REASONING["EMOTIONAL"].description)' 
     onmouseout='hideDetails("behaviour-reasoning-details-1")' 
     onclick="doDialog('dialog-4_4',setReasoning,'EMOTIONAL')">Heart</button>&nbsp;
     <div id='behaviour-reasoning-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-4_4">
-    <p data-if="GAME.main.behavior.energy=='RATIONAL'">"A logic-driven one. Fascinating!"</p>
-    <p data-if="GAME.main.behavior.energy=='EMOTIONAL'">"A feeling-driven one. Intriguing."</p>
+    <p data-if="BEHAVIOURS.reasoning().key=='RATIONAL'">"A logic-driven one. Fascinating!"</p>
+    <p data-if="BEHAVIOURS.reasoning().key=='EMOTIONAL'">"A feeling-driven one. Intriguing."</p>
     <p>"Do you like to improvise or preffer to stick to the plan?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-approuch-details-1","IMPROVISED",BEHAVIOUR.APPROUCH["IMPROVISED"].description)' 
-    onmouseout='hideDetails("behaviour-approuch-details-1")' 
+    onmouseover='showDetails("behaviour-approach-details-1","IMPROVISED",BEHAVIOURS.APPROACH["IMPROVISED"].description)' 
+    onmouseout='hideDetails("behaviour-approach-details-1")' 
     onclick="doDialog('dialog-4_5',setApprouch,'IMPROVISED')">Improvise</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-approuch-details-1","PLANED",BEHAVIOUR.APPROUCH["PLANED"].description)' 
-    onmouseout='hideDetails("behaviour-approuch-details-1")' 
+    onmouseover='showDetails("behaviour-approach-details-1","PLANED",BEHAVIOURS.APPROACH["PLANED"].description)' 
+    onmouseout='hideDetails("behaviour-approach-details-1")' 
     onclick="doDialog('dialog-4_5',setApprouch,'PLANED')">Stick to the plan</button>&nbsp;
-    <div id='behaviour-approuch-details-1'></div>
+    <div id='behaviour-approach-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-4_5">
-    <p data-if="GAME.main.behavior.energy=='IMPROVISED'">"A guts kind of a person. Exciting!"</p>
-    <p data-if="GAME.main.behavior.energy=='PLANED'">"Well prepared. Admirable."</p>
+    <p data-if="BEHAVIOURS.approach().key=='IMPROVISED'">"A guts kind of a person. Exciting!"</p>
+    <p data-if="BEHAVIOURS.approach().key=='PLANED'">"Well prepared. Admirable."</p>
     <p>"Do you stress over your responsibilities and strive for excellence?"</p>
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-attitude-details-1","DRIVEN",BEHAVIOUR.ATTITUDE["DRIVEN"].description)' 
+    onmouseover='showDetails("behaviour-attitude-details-1","DRIVEN",BEHAVIOURS.ATTITUDE["DRIVEN"].description)' 
     onmouseout='hideDetails("behaviour-attitude-details-1")' 
     onclick="doDialog('dialog-4_6',setAttitude,'DRIVEN')">Yes</button>&nbsp;
     <button type="button" class="btn btn-secondary" 
-    onmouseover='showDetails("behaviour-attitude-details-1","RELAXED",BEHAVIOUR.ATTITUDE["RELAXED"].description)' 
+    onmouseover='showDetails("behaviour-attitude-details-1","RELAXED",BEHAVIOURS.ATTITUDE["RELAXED"].description)' 
     onmouseout='hideDetails("behaviour-attitude-details-1")' 
     onclick="doDialog('dialog-4_6',setAttitude,'RELAXED')">No</button>&nbsp;
     <div id='behaviour-attitude-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-4_6">
-    <p data-if="GAME.main.behavior.energy=='DRIVEN'">"Someone focused, just what I needed!"</p>
-    <p data-if="GAME.main.behavior.energy=='RELAXED'">"So you take your time, that's fine, but I beg your help."</p>
+    <p data-if="BEHAVIOURS.attitude().key=='DRIVEN'">"Someone focused, just what I needed!"</p>
+    <p data-if="BEHAVIOURS.attitude().key=='RELAXED'">"So you take your time, that's fine, but I beg your help."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_7')">...</button>&nbsp;    
 </div>
 <div data-element-type='dialog' id="dialog-4_7">
     <p>"So you are a 
-        <span class='relevant lowercase' data-bind='BEHAVIOUR.ENERGY[GAME.main.behavior.energy].label'></span>
-        with a <span class='relevant lowercase' data-bind='BEHAVIOUR.PERSPECTIVE[GAME.main.behavior.perspective].label'></span> perspective, 
-        <span class='relevant lowercase' data-bind='BEHAVIOUR.REASONING[GAME.main.behavior.reasoning].label'></span> reasoning,
-        <span class='relevant lowercase' data-bind='BEHAVIOUR.APPROUCH[GAME.main.behavior.approach].label'></span> approach and 
-        a <span class='relevant lowercase' data-bind='BEHAVIOUR.ATTITUDE[GAME.main.behavior.attitude].label'></span> attitude..."</p>
-    <p><span class='relevant' data-if="START.who!=true" data-else="Zargos">Watcher</span> make a pause, then 'utters'.</p>
-    <p>"You are like a <span data-if='GAME.main.behavior.approach=="PLANED"' data-else="charming">trusty</span> <span data-if='GAME.main.behavior.reasoning=="EMOTIONAL"' data-else="sun">moon</span> 
-        <span data-if='GAME.main.behavior.energy=="INTROVERT"' data-else="dawning">dusking</span> over 
-        <span data-if='GAME.main.behavior.perspective=="PRATICAL"' data-else="seas">mountains</span> bathing all with 
-        <span data-if='GAME.main.behavior.attitude=="RELAXED"' data-else="revealing">calming</span>"
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.energy().label'></span>
+        with a <span class='relevant lowercase' data-bind='BEHAVIOURS.perspective().label'></span> perspective, 
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.reasoning().label'></span> reasoning,
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.approach().label'></span> approach and 
+        a <span class='relevant lowercase' data-bind='BEHAVIOURS.attitude().label'></span> attitude..."</p>
+    <p><span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">Watcher</span> make a pause, then 'utters'.</p>
+    <p>"You are like a <span data-if='BEHAVIOURS.approach().key=="PLANED"' data-else="charming">trusty</span> <span data-if='BEHAVIOURS.reasoning().key=="EMOTIONAL"' data-else="sun">moon</span> 
+        <span data-if='BEHAVIOURS.energy().key=="INTROVERT"' data-else="dawning">dusking</span> over 
+        <span data-if='BEHAVIOURS.perspective().key=="PRATICAL"' data-else="seas">mountains</span> bathing all with 
+        <span data-if='BEHAVIOURS.attitude().key=="RELAXED"' data-else="revealing">calming</span> light"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_flirting')">Are you flirting?</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_8')">Are you flirting?</button>&nbsp;
 </div>
@@ -275,7 +279,7 @@
 
     GAME.main.personality={
         expression:{main:'',auxiliar:''},
-        behavior:{energy:'', perspective:'', reasoning:'', approach:'', attitude:''},
+        behaviour:{energy:'', perspective:'', reasoning:'', approach:'', attitude:''},
         objective:{root:'',approach:''},
         moral:0,
         empathy:0,
@@ -305,25 +309,25 @@
         GAME.main.personality.expression.auxiliar=expression;
     }
     function setRootObjective(key){
-        GAME.main.objective.root=key;
+        GAME.main.personality.objective.root=key;
     };
     function setApproachObjective(key){
-        GAME.main.objective.approach=key;
+        GAME.main.personality.objective.approach=key;
     };
     function setEnergy(key){
-        GAME.main.behavior.energy=key;
+        GAME.main.personality.behaviour.energy=key;
     };
     function setPerspective(key){
-        GAME.main.behavior.perspective=key;
+        GAME.main.personality.behaviour.perspective=key;
     };
     function setReasoning(key){
-        GAME.main.behavior.reasoning=key;
+        GAME.main.personality.behaviour.reasoning=key;
     };
     function setApprouch(key){
-        GAME.main.behavior.approach=key;
+        GAME.main.personality.behaviour.approach=key;
     };
     function setAttitude(key){
-        GAME.main.behavior.attitude=key;
+        GAME.main.personality.behaviour.attitude=key;
     };
     function _continue(){
         setPlace(PLACES._001START_2);

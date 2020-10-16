@@ -9,6 +9,6 @@ $(document).on("load-place",(event,payload)=>{
     $.get('/game/places/'+payload.place.code+'.htm').then((data)=>{
        $("#text-panel").html("");
        $("#text-panel").append(data);
-       dataBind();
+       dataBind("[data-first-element]");
     })
 })

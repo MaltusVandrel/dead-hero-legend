@@ -5,7 +5,18 @@ var EXPRESSIONS={
     PRESTIGE:{label:"Prestige",description:"Someone who set a higher standard.",adjective:"Elegant"},
     TRUST:{label:"Trust",description:"Someone who earn respect by stability.",adjective:"Reliable"},
     CUNNING:{label:"Cunning",description:"Someone who communicate meaningfully.",adjective:"Clever"},
-    KEEN:{label:"Keen",description:"Someone who prevent mistakes with attention",adjective:"Meticulous"}
+    KEEN:{label:"Keen",description:"Someone who prevent mistakes with attention",adjective:"Meticulous"},
+    main:function(character){
+        if(!character)character=GAME.main
+        var key=character.personality.expression.main;
+        return {...EXPRESSIONS[key],key:key};
+    },
+    auxiliar:function(character){
+        if(!character)character=GAME.main;
+        var key=character.personality.expression.auxiliar;
+        return {...EXPRESSIONS[key],key:key};
+    },
+
 };
 var OBJECTIVES={
     SOCIAL:{
@@ -72,9 +83,45 @@ var OBJECTIVES={
             classification:"Keeper"
         }
     }
+},
+root:function(character){
+    if(!character)character=GAME.main
+    var key=character.personality.objective.root;
+    return {...OBJECTIVES[key],key:key};
+},
+approach:function(character){
+    if(!character)character=GAME.main
+    var root= OBJECTIVES[character.personality.objective.root];
+    var key=character.personality.objective.approach;
+    return {...root.approaches[key],key:key};
+},
 }
-}
-var BEHAVIOR={
+var BEHAVIOURS={
+    energy:function(character){
+        if(!character)character=GAME.main
+        var key=character.personality.behaviour.energy;
+        return {...BEHAVIOURS.ENERGY[key],key:key};
+    },
+    perspective:function(character){
+        if(!character)character=GAME.main
+        var key=character.personality.behaviour.perspective;
+        return {...BEHAVIOURS.PERSPECTIVE[key],key:key};
+    },
+    reasoning:function(character){
+        if(!character)character=GAME.main
+        var key=character.personality.behaviour.reasoning;
+        return {...BEHAVIOURS.REASONING[key],key:key};
+    },
+    approach:function(character){
+        if(!character)character=GAME.main
+        var key=character.personality.behaviour.approach;
+        return {...BEHAVIOURS.APPROACH[key],key:key};
+    },
+    attitude:function(character){
+        if(!character)character=GAME.main
+        var key=character.personality.behaviour.attitude;
+        return {...BEHAVIOURS.ATTITUDE[key],key:key};
+    },
     ENERGY:{
         INTROVERT:{
             label:"Introvert",
@@ -105,7 +152,7 @@ var BEHAVIOR={
             description:'Someone emphatic and emotion-driven.'
         }
     }, 
-    APPROUCH:{
+    APPROACH:{
         IMPROVISED:{
             label:'Improvised',
             description:'Someone accustomed to adapt to the situation.'
