@@ -143,7 +143,7 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3_gofoward')">Yes</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_goback">
-    <p>"That's fine, let's try again!</p>
+    <p>"That's fine, let's try again!"</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_gofoward">
@@ -157,6 +157,10 @@
     <p>"Let's keep going, we doing progress!"</p>
     <p>It was an invite, but it was not like <span class='relevant' data-bind='firstName(GAME.main.name)'></span> could deny.</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4')">...</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-4">
+    <p>"Let's see your behavior, my stranger yet dearest"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3')">...</button>&nbsp;
 </div>
 <script type="text/javascript">
     hideDialogs().but('dialog-1');   
