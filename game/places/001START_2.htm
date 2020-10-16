@@ -12,11 +12,11 @@
     <p>"It's not funny my dear yet-to-know-friend! If I don't know you well, I may erase your personality by mistake!"</p>
     <p>A shiver took <span class='relevant' data-bind='firstName(GAME.main.name)'>'s countiousness.</span></p>
     <p>"Do not be fraid, I am determined to keep you intact as I can."</p>
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_1')">Shit!</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2_1')">Shit!</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2_2')">Thank you?</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-1_2_2')">Thank you</button>&nbsp;
 </div>
-<div data-element-type='dialog' id="dialog-1_1">
+<div data-element-type='dialog' id="dialog-1_2_1">
     <p>"Be not afraid, I assure you that I learned from my past mistakes, you sure will be fine!"</p>
     <p><span class='relevant' data-bind='firstName(GAME.main.name)'> felt that they had no other option.</span></p>
     <p>"Let's begin."</p>
@@ -54,25 +54,39 @@
 </div>
 <div data-element-type='dialog' id="dialog-2">
     <p>"<span class='relevant' data-bind='firstName(GAME.main.name)'></span>, which one of the following feel like your main <em>forte</em> when you interact with your peers"</p>
-    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","INNOVATION")' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'INNOVATION')">Innovation</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","PASSION")' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'PASSION')">Passion</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","POWER")' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'POWER')">Power</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","PRESTIGE")' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'PRESTIGE')">Prestige</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","TRUST")' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'TRUST')">Trust</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","CUNNING")' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'CUNNING')">Cunning</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-1","KEEN")' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'KEEN')">Control</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-1","INNOVATION",EXPRESSIONS["INNOVATION"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'INNOVATION')">Innovation</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-1","PASSION",EXPRESSIONS["PASSION"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'PASSION')">Passion</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-1","POWER",EXPRESSIONS["POWER"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'POWER')">Power</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-1","PRESTIGE",EXPRESSIONS["PRESTIGE"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'PRESTIGE')">Prestige</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-1","TRUST",EXPRESSIONS["TRUST"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'TRUST')">Trust</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-1","CUNNING",EXPRESSIONS["CUNNING"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'CUNNING')">Cunning</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-1","KEEN",EXPRESSIONS["KEEN"].description)' onmouseout='hideDetails("expression-details-1")' onclick="doDialog('dialog-2_1',setMainExpression,'KEEN')">Control</button>&nbsp;
     <br/>
     <div id='expression-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-2_1">
     <p>"<span class='relevant' data-bind='EXPRESSIONS[GAME.main.personality.expression.main].label'></span>, interesting... in a minor intensity but with the same relevance, do you have a second <em>style</em>?"</p>
-    <button type="button" data-if="GAME.main.personality.expression.main!='INNOVATION'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","INNOVATION")' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'INNOVATION')">Innovation</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='PASSION'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","PASSION")' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PASSION')">Passion</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='POWER'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","POWER")' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'POWER')">Power</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='PRESTIGE'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","PRESTIGE")' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PRESTIGE')">Prestige</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='TRUST'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","TRUST")' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'TRUST')">Trust</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='CUNNING'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","CUNNING")' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'CUNNING')">Cunning</button>&nbsp;
-    <button type="button" data-if="GAME.main.personality.expression.main!='KEEN'" class="btn btn-secondary" onmouseover='showExpressionDetails("expression-details-2","KEEN")' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'KEEN')">Control</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='INNOVATION'" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-2","INNOVATION",EXPRESSIONS["INNOVATION"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'INNOVATION')">Innovation</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='PASSION'" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-2","PASSION",EXPRESSIONS["PASSION"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PASSION')">Passion</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='POWER'" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-2","POWER",EXPRESSIONS["POWER"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'POWER')">Power</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='PRESTIGE'" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-2","PRESTIGE",EXPRESSIONS["PRESTIGE"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'PRESTIGE')">Prestige</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='TRUST'" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-2","TRUST",EXPRESSIONS["TRUST"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'TRUST')">Trust</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='CUNNING'" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-2","CUNNING",EXPRESSIONS["CUNNING"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'CUNNING')">Cunning</button>&nbsp;
+    <button type="button" data-if="GAME.main.personality.expression.main!='KEEN'" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-details-2","KEEN",EXPRESSIONS["KEEN"].description)' onmouseout='hideDetails("expression-details-2")' onclick="doDialog('dialog-2_2',setAuxiliarExpression,'KEEN')">Control</button>&nbsp;
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_2',setAuxiliarExpression,GAME.main.personality.expression.main)">No, I'm totally like this</button>&nbsp;
     <br/>
     <div id='expression-details-2'></div>
@@ -102,10 +116,14 @@
 </div>
 <div data-element-type='dialog' id="dialog-3">
     <p>"Which from those fit better with what you want to do with your life? You know, now that you have it back."</p>
-    <button type="button" class="btn btn-secondary" onmouseover='showObjectiveDetails("expression-root-details-1","SOCIAL")' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_1',setRootObjective,'SOCIAL')">Live in society</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showObjectiveDetails("expression-root-details-1","EGO")' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_2',setRootObjective,'EGO')">Make a Legacy</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showObjectiveDetails("expression-root-details-1","CALLING")' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_3',setRootObjective,'CALLING')">Find salvation</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onmouseover='showObjectiveDetails("expression-root-details-1","ORDER")' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_4',setRootObjective,'ORDER')">Make a better World</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-root-details-1","SOCIAL",OBJECTIVES["SOCIAL"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_1',setRootObjective,'SOCIAL')">Live in society</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-root-details-1","EGO",OBJECTIVES["EGO"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_2',setRootObjective,'EGO')">Make a Legacy</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-root-details-1","CALLING",OBJECTIVES["CALLING"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_3',setRootObjective,'CALLING')">Find salvation</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("expression-root-details-1","ORDER",OBJECTIVES["ORDER"].description)' onmouseout='hideDetails("root-details-1")' onclick="doDialog('dialog-3_4',setRootObjective,'ORDER')">Make a better World</button>&nbsp;
      <div id='objective-root-details-1'></div>
 </div>
 <div data-element-type='dialog' id="dialog-3_1">
@@ -159,11 +177,83 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-4">
-    <p>"Let's see your behavior, my stranger yet dearest"</p>
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3')">...</button>&nbsp;
+    <p>"Let's see your behavior, my yet stranger but dearest."</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_1')">...</button>&nbsp;
 </div>
+<div data-element-type='dialog' id="dialog-4_1">
+    <p>"Do you gather more energy through personal endevours or communing with your peers? In another words, respectively, are you more... (?)"</p>
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-energy-details-1","INTROVERT",BEHAVIOUR.ENERGY["INTROVERT"].description)' 
+    onmouseout='hideDetails("behaviour-energy-details-1")' 
+    onclick="doDialog('dialog-4_2',setEnergy,'INTROVERT')">Reserved</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-energy-details-1","EXTRAVERT",BEHAVIOUR.ENERGY["EXTRAVERT"].description)' 
+    onmouseout='hideDetails("behaviour-energy-details-1")' 
+    onclick="doDialog('dialog-4_1',setEnergy,'EXTRAVERT')">Gregarious</button>&nbsp;
+    <div id='behaviour-energy-details-1'></div>
+</div>
+<div data-element-type='dialog' id="dialog-4_2">
+    <p data-if="GAME.main.behavior.energy=='INTROVERT'">"So you are a quiet introspective one? Sorry for invade with such of a brute manner, but I guarantee it's necessary."</p>
+    <p data-if="GAME.main.behavior.energy=='EXTRAVERT'">"Oh, a quite sociable... person. I do need to remember to ask your gender later, would be a shame to forgot that."</p>
+    <p>After a short stop, <span class='relevant' data-if="START.who!=true" data-else="Zargos">the Watcher</span>  continues.</p>
+    <p>"Are you more grounded in your thoughts and objectives or your mind all too easly fly to wonders and focus in things that are yet to happen?"</p>
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-perspective-details-1","PRATICAL")' 
+    onmouseout='hideDetails("behaviour-perspective-details-1")' 
+    onclick="doDialog('dialog-4_3',setPerspective,'PRATICAL')">Pratical</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-perspective-details-1","IMAGINATIVE")' 
+    onmouseout='hideDetails("behaviour-perspective-details-1")' 
+    onclick="doDialog('dialog-4_3',setPerspective,'IMAGINATIVE')">Wonder-driven</button>&nbsp;
+    <div id='behaviour-perspective-details-1'></div>
+</div>
+<div data-element-type='dialog' id="dialog-4_3">
+    <p data-if="GAME.main.behavior.energy=='PRATICAL'">"So you focus on the here and now, right? Must be wonderful to be your self angular stone."</p>
+    <p data-if="GAME.main.behavior.energy=='IMAGINATIVE'">"It must be great to hear your wondering thoughts."</p>
+    <p>"Do your mind or your heart reing over you?"</p>
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-reasoning-details-1","RATIONAL")' 
+    onmouseout='hideDetails("behaviour-reasoning-details-1")' 
+    onclick="doDialog('dialog-4_4',setReasoning,'RATIONAL')">Mind</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-reasoning-details-1","EMOTIONAL")' 
+    onmouseout='hideDetails("behaviour-reasoning-details-1")' 
+    onclick="doDialog('dialog-4_4',setReasoning,'EMOTIONAL')">Heart</button>&nbsp;
+    <div id='behaviour-reasoning-details-1'></div>
+</div>
+<div data-element-type='dialog' id="dialog-4_4">
+    <p data-if="GAME.main.behavior.energy=='RATIONAL'">"A logic-driven one. Fascinating!"</p>
+    <p data-if="GAME.main.behavior.energy=='EMOTIONAL'">"A feeling-driven one. Intriguing."</p>
+    <p>"Do you like to improvise or preffer to stick to the plan?"</p>
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-approuch-details-1","IMPROVISED")' 
+    onmouseout='hideDetails("behaviour-approuch-details-1")' 
+    onclick="doDialog('dialog-4_5',setApprouch,'IMPROVISED')">Improvise</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-approuch-details-1","PLANED")' 
+    onmouseout='hideDetails("behaviour-approuch-details-1")' 
+    onclick="doDialog('dialog-4_5',setApprouch,'PLANED')">Stick to the plan</button>&nbsp;
+    <div id='behaviour-approuch-details-1'></div>
+</div>
+<div data-element-type='dialog' id="dialog-4_5">
+    <p data-if="GAME.main.behavior.energy=='IMPROVISED'">"A guts kind of a person. Exciting!"</p>
+    <p data-if="GAME.main.behavior.energy=='PLANED'">"Well prepared. Admirable."</p>
+    <p>"Do you stress over your responsibilities and strive for excellence?"</p>
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-attitude-details-1","DRIVEN")' 
+    onmouseout='hideDetails("behaviour-attitude-details-1")' 
+    onclick="doDialog('dialog-4_5',setAttitude,'DRIVEN')">Yes</button>&nbsp;
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("behaviour-attitude-details-1","RELAXED")' 
+    onmouseout='hideDetails("behaviour-attitude-details-1")' 
+    onclick="doDialog('dialog-4_5',setAttitude,'RELAXED')">No</button>&nbsp;
+    <div id='behaviour-attitude-details-1'></div>
+</div>
+
 <script type="text/javascript">
-    hideDialogs().but('dialog-1');   
+    hideDialogs().but('dialog-1');  
+    
+
     GAME.main.personality={
         expression:{main:'',auxiliar:''},
         behavior:{energy:'', perspective:'', reasoning:'', approach:'', attitude:''},
@@ -171,10 +261,12 @@
         moral:0,
         empathy:0,
         estability:0,
+        libido:0,
+        gender:0,
         traits:[]};
         
-    function showExpressionDetails(key,expression){
-        $("#"+key).html(EXPRESSIONS[expression].description);
+    function showDetails(key,expression,data){
+        $("#"+key).html(data);
     }
     function hideDetails(key){
         $("#"+key).html("");
@@ -193,6 +285,27 @@
     function setAuxiliarExpression(expression){
         GAME.main.personality.expression.auxiliar=expression;
     }
+    function setRootObjective(key){
+        GAME.main.objective.root=key;
+    };
+    function setApproachObjective(key){
+        GAME.main.objective.approach=key;
+    };
+    function setEnergy(key){
+        GAME.main.behavior.energy=key;
+    };
+    function setPerspective(key){
+        GAME.main.behavior.perspective=key;
+    };
+    function setReasoning(key){
+        GAME.main.behavior.reasoning=key;
+    };
+    function setApprouch(key){
+        GAME.main.behavior.approach=key;
+    };
+    function setAttitude(key){
+        GAME.main.behavior.attitude=key;
+    };
     function _continue(){
         setPlace(PLACES._001START_2);
     }

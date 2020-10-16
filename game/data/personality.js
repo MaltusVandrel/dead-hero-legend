@@ -1,15 +1,15 @@
 var EXPRESSIONS={
-    INNOVATION:{label:"Innovation",description:"Captivate with inventiveness.",adjective:"Creative"},
-    PASSION:{label:"Passion",description:"Connect with emotion.",adjective:"Passionate"},
-    POWER:{label:"Power",description:"Lead with assertiveness.",adjective:"Powerful"},
-    PRESTIGE:{label:"Prestige",description:"Set higher standards.",adjective:"Elegant"},
-    TRUST:{label:"Trust",description:"Earn respect by stability.",adjective:"Reliable"},
-    CUNNING:{label:"Cunning",description:"Communicate meaningfully.",adjective:"Clever"},
-    KEEN:{label:"Keen",description:"Prevent with attention",adjective:"Meticulous"}
+    INNOVATION:{label:"Innovation",description:"Someone who captivate with inventiveness.",adjective:"Creative"},
+    PASSION:{label:"Passion",description:"Someone who connect with emotion.",adjective:"Passionate"},
+    POWER:{label:"Power",description:"Someone who lead with assertiveness.",adjective:"Powerful"},
+    PRESTIGE:{label:"Prestige",description:"Someone who set a higher standard.",adjective:"Elegant"},
+    TRUST:{label:"Trust",description:"Someone who earn respect by stability.",adjective:"Reliable"},
+    CUNNING:{label:"Cunning",description:"Someone who communicate meaningfully.",adjective:"Clever"},
+    KEEN:{label:"Keen",description:"Someone who prevent mistakes with attention",adjective:"Meticulous"}
 };
 var OBJECTIVES={
     SOCIAL:{
-        label:"Social",description:"Live in society and bond with peers",
+        label:"Social",description:"Someone who craves to live in society and bond with peers",
         approaches:{
             BELONGING:{
                 label:"Belonging",
@@ -25,7 +25,7 @@ var OBJECTIVES={
             }
         }
     },
-    EGO:{label:"Legacy",description:"Make a Legacy and be remembered",
+    EGO:{label:"Legacy",description:"Someone who craves to make a Legacy and be remembered",
     approaches:{
         CHANGE:{
             label:"Change",
@@ -41,7 +41,7 @@ var OBJECTIVES={
         }
     }
 },
-    CALLING:{label:"Calling",description:"Find liberty and commune with something bigger",
+    CALLING:{label:"Calling",description:"Someone who craves to find liberty and commune with something bigger",
     approaches:{
         PEACE:{
             label:"Peace",
@@ -57,7 +57,7 @@ var OBJECTIVES={
         }
     }
 },
-    ORDER:{label:"Order",description:"Make a better World and spread order",
+    ORDER:{label:"Order",description:"Someone who craves to make a better World and build order",
     approaches:{
         INNOVATION:{
             label:"INNOVATION",
@@ -74,11 +74,63 @@ var OBJECTIVES={
     }
 }
 }
+var BEHAVIOR={
+    ENERGY:{
+        INTROVERT:{
+            label:"Introvert",
+            description:"Someone who gathers energy from reclusion and self-focused activities."
+        },
+        EXTRAVERT:{
+            label:"Extravert",
+            description:"Someone who gathers energy from social interaction."
+        }
+    }, 
+    PERSPECTIVE:{
+        PRATICAL:{
+            label:'Pratical',
+            description:'Someone that focus on the tangible and doable, here and now and what was learned from the past.'
+        },
+        IMAGINATIVE:{
+            label:'Imaginative',
+            description:'Someone that are enticed for possibilities, future and potential.'
+        }
+    }, 
+    REASONING:{
+        RATIONAL:{
+            label:'Rational',
+            description:'Someone logical and reason-driven.'
+        },
+        EMOTIONAL:{
+            label:'Emotional',
+            description:'Someone emphatic and emotion-driven.'
+        }
+    }, 
+    APPROUCH:{
+        IMPROVISED:{
+            label:'Improvised',
+            description:'Someone accustomed to adapt to the situation.'
+        },
+        PLANED:{
+            label:'Planed',
+            description:'Someone who prepare and thinks before act.'
+        }
+    }, 
+    ATTITUDE:{
+        DRIVEN:{
+            label:'Driven',
+            description:'Someone success-driven and eager to improve but sensitive to stress.'
+        },
+        RELAXED:{
+            label:'Relaxed',
+            description:'Someone self-assured and resistant to stress but with mild dedication.'
+        }
+    }
+}
 
 //TODO
 var EXPRESSION_ARCHETYPES={
     INNOVATION:{
-        INNOVATION:{label:"The Anarchist",description:"Captivate with inventiveness."},
+        INNOVATION:{label:"The Anarchist",description:"Someone who captivate with inventiveness."},
         PASSION:{label:"The Show Star",description:"Connect with emotion."},
         POWER:{label:"The Visionary Leader",description:"Lead with assertiveness."},
         PRESTIGE:{label:"The Trendsetter",description:"Set higher standards."},
