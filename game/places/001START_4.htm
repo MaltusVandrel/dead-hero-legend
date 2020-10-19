@@ -1,0 +1,121 @@
+<div data-first-element data-element-type='dialog' id="dialog-1">
+    <p>"Alright, now about your habilities, in which you are naturally better?"</p>
+    <p><span class='relevant' data-bind="firstName()"></span> concentrete then remembers that <span data-bind="GAME.main.pronoums.possessivePronoum"></span> best hability is:</p>
+    <button type="button" class="btn btn-secondary" 
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["STR"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.STR+=4)">Strength</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["DEX"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.DEX+=4)">Dexterity</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["CON"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.CON+=4)">Constitution</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["INT"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.INT+=4)">Inteligence</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["WIS"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.WIS+=4)">Wisdom</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["CAR"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.CAR+=4)">Charisma</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["WIL"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.WIL+=4)">Will Power</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["APP"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.APP+=4)">Appearance</button>&nbsp;
+    <button type="button" class="btn btn-secondary"  
+    onmouseover='showDetails("attribute-details-1",ATRIBUTE_INFO["LUK"].info)' 
+    onmouseout='hideDetails("attribute-details-1")' 
+    onclick="doDialog('dialog-2',()=>GAME.main.LUK+=16)">Luck</button>&nbsp;
+    <div id="attribute-details-1"></div>
+</div>
+<div data-element-type='dialog' id="dialog-2">
+    <p>"Great! Do you remember what you did in your old life?"</p>
+    <p><span class='relevant' data-bind="firstName()"></span>'s' memory was fuzzy, but remembered <span data-bind="GAME.main.pronoums.subject"></span> was ...</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_laborer')">A laborer</button>&nbsp
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_scholar')">A scholar</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_crafter')">A crafter</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_artist')">An artist</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_unusual')">Unusual...</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-2_special')">More than a worker</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-2_laborer">
+    <p>"What was your labor?"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'HUNTER')">Hunter</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'LUMBERJACK')">Lumberjack</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'FARMER')">Farmer</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'HOUSEKEEPER')">Housekeeper</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'GUARD')">Guard</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'HERBALIST')">Herbalist</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'FISHER')">Fisher</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'SAILOR')">Sailor</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',labor,'HEALER')">Healer</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-2_scholar">
+    <p>"What was your main subject?"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',knowledge,'SCIENCE')">Science</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',knowledge,'ARCANE')">Arcane</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',knowledge,'DIVINE')">Divine</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',knowledge,'NATURE')">Nature</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',knowledge,'HISTORY')">History</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',knowledge,'LEGEND')">Legend</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-2_crafter">
+    <p>"What was your craft?"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',craft,'BLACKSMITH')">Blacksmith</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',craft,'ARTISAN')">Artisan</button>&nbsp;    
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',craft,'WEAVER')">Weaver</button>&nbsp;   
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',craft,'ALCHEMIST')">Alchemist</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',craft,'COOKER')">Cooker</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',craft,'TINKERER')">Tinkerer</button>&nbsp;
+       
+</div>
+<div data-element-type='dialog' id="dialog-2_artist">
+    <p>"What was your art?"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',art,'SINGER')">Singer</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',art,'DANCER')">Dancer</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',art,'PAINTER')">Paiter</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',art,'SCULPTOR')">Sculptor</button>&nbsp;    
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',art,'ACTOR')">Actor</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-2_unusual">
+    <p>"What did you were?"</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',unusual,'SEXWORKER')">Sex worker</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',unusual,'THUG')">Thug</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',unusual,'THIEF')">Thief</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',unusual,'MERCENARY')">Mercenary</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-2_special">
+    <p>"You mean you was ..."</p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',special,'PRIEST')">A priest</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',special,'LEADER')">A community leader</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',unusual,'MYSTIC')">A mystic</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-3',unusual,'HERO')">A hero</button>&nbsp;
+</div>
+
+<script type="text/javascript">
+    hideDialogs().but('dialog-1');  
+    
+    GAME.main.skills={};
+  
+    function showDetails(key,data){
+        $("#"+key).html(data);
+    }
+    function hideDetails(key){
+        $("#"+key).html("");
+    }
+    function _continue(){
+        setPlace(PLACES._002BEACH_1);
+    }
+   
+</script>

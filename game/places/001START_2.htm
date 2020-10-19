@@ -181,7 +181,7 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-4">
-    <p>"Let's see your behavior, my yet stranger but dearest."</p>
+    <p>"Let's see your behavior, my yet strange but dearest."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_1')">...</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-4_1">
@@ -199,7 +199,7 @@
 <div data-element-type='dialog' id="dialog-4_2">
     <p data-if="BEHAVIOURS.energy().key=='INTROVERT'">"So you are a quiet introspective one? Sorry for invade with such of a brute manner, but I guarantee it's necessary."</p>
     <p data-if="BEHAVIOURS.energy().key=='EXTRAVERT'">"Oh, a quite sociable... person. I do need to remember to ask your gender later, would be a shame to forgot that."</p>
-    <p>After a short stop, <span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">the Watcher</span>  continues.</p>
+    <p>After a short stop, <span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">the Watcher</span> continues.</p>
     <p>"Are you more grounded in your thoughts and objectives or your mind all too easly fly to wonders and focus in things that are yet to happen?"</p>
     <button type="button" class="btn btn-secondary" 
     onmouseover='showDetails("behaviour-perspective-details-1","PRATICAL",BEHAVIOURS.PERSPECTIVE["PRATICAL"].description)' 
@@ -270,9 +270,111 @@
         <span data-if='BEHAVIOURS.energy().key=="INTROVERT"' data-else="dawning">dusking</span> over 
         <span data-if='BEHAVIOURS.perspective().key=="PRATICAL"' data-else="seas">mountains</span> bathing all with 
         <span data-if='BEHAVIOURS.attitude().key=="RELAXED"' data-else="revealing">calming</span> light"</p>
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_flirting')">Are you flirting?</button>&nbsp;
-    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_8')">Are you flirting?</button>&nbsp;
+    <button type="button"  data-if="GAME.PLACES.START.flirted!=true"  class="btn btn-secondary" onclick="doDialog('dialog-4_flirting',()=>GAME.PLACES.START.flirted=true)">Are you flirting?</button>&nbsp;
+    <button type="button"  data-if="GAME.PLACES.START.flirted==true&&GAME.PLACES.START.likedFlirt==true" class="btn btn-secondary" onclick="doDialog('dialog-4_flirt_like',()=>GAME.PLACES.START.flirted=true)">Flirty, huh?</button>&nbsp;
+    <button type="button"  data-if="GAME.PLACES.START.flirted==true&&GAME.PLACES.START.likedFlirt==false" class="btn btn-secondary" onclick="doDialog('dialog-4_flirt_dislike',()=>GAME.PLACES.START.flirted=true)">Flirty, huh?</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_wrong')">Sounds wrong</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_right')">Sounds right</button>&nbsp;
 </div>
+<div data-element-type='dialog' id="dialog-4_flirting">
+    <p>"Me?! I mean...",<span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">the Watcher</span> sounded flustered "Yes if you liked that." </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_flirt_like')">It's charming</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_flirt_dislike')">Not really</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-4_flirt_like">
+    <p>"Haha! ",<span class='relevant' data-if="GAME.PLACES.START.who!=true" data-else="Zargos">the Watcher</span> expressed proudness and surprise "You deserve it." </p>
+    <p>The entity recolected himself then his mind focused in his objective again, asking:</p>
+    <p>"But, <span class='relevant' data-bind="firstName()"></span>, do you see yourself with these behaviours: 
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.energy().label'></span>,
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.reasoning().label'></span>,
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.attitude().label'></span>,
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.perspective().label'></span> and 
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.approach().label'></span>?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_wrong')">Sounds wrong</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_right')">Sounds right</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-4_flirt_dislike">
+    <p>"Oh! Sorry <span class='relevant' data-bind="firstName()"></span>, I got way too carried away. I deeply apologise." </p>
+    <p>The entity recolected himself after a long pause, then his mind focused in his objective again, asking:</p>
+    <p>"But, <span class='relevant' data-bind="firstName()"></span>, do you see yourself with these behaviours: 
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.energy().label'></span>,
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.reasoning().label'></span>,
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.attitude().label'></span>,
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.perspective().label'></span> and 
+        <span class='relevant lowercase' data-bind='BEHAVIOURS.approach().label'></span>?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_wrong')">Sounds wrong</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_right')">Sounds right</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-4_wrong">
+    <p>"Oh well, let's ty again then..." </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4_1')">...</button>&nbsp;
+</div>  
+<div data-element-type='dialog' id="dialog-4_right">
+    <p>"Great! Now we have left just some little polishing left." </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-5')">...</button>&nbsp;
+</div>  
+<div data-element-type='dialog' id="dialog-5">
+    <p>"Would you risk yourself for another?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy+=5)">Maybe</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy-=5)">I guess not</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>{GAME.main.personality.empathy-=5;GAME.main.personality.moral+=5;})">Yes, if deserved</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>{GAME.main.personality.empathy+=0;GAME.main.personality.moral+=5;})">No, unless deserved</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy+=15)">Most of the time</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy-=15)">Rarelly</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy+=25)">Always</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy-=25)">Never</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy+=50)">Even if I would die</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-6',()=>GAME.main.personality.empathy-=50)">(Laugh, as a NO)</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-6">
+    <p>"Would you tell the truth even if it would have negative consequences to you?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-7',()=>GAME.main.personality.moral+=10)">Yes, if feel right</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-7',()=>GAME.main.personality.moral-=10)">Yes, if I would get caught</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-7',()=>GAME.main.personality.moral+=20)">Yes, most of the times</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-7',()=>GAME.main.personality.moral-=20)">No, almost never</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-7">
+    <p>"Do you feel confortable with your own thoughts?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-8',()=>GAME.main.personality.estability+=10)">Yes</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-8',()=>GAME.main.personality.estability-=10)">No</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-8">
+    <p>"Do you feel most of the things are pointless and or hopeless?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-9',()=>GAME.main.personality.estability+=10)">No</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-9',()=>GAME.main.personality.estability-=10)">Yes</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-9">
+    <p>"Do stress affect your health noticeably?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-10',()=>GAME.main.personality.estability+=10)">No</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-10',()=>GAME.main.personality.estability-=15)">Yes</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-10">
+    <p>"I guess we ended with this part... Oh, wait, what are your gender?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-11',()=>GAME.main.personality.gender='MALE')">Male</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-11',()=>GAME.main.personality.gender='FEMALE')">Female</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-11',()=>GAME.main.personality.gender='NONBINARY')">Neither</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-11',()=>GAME.main.personality.gender='NAME')">Call me <span data-bind='firstName()'></span></button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-11">
+    <p>"And which one you are atracted to?" </p>
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-12',()=>GAME.main.personality.sexualOrientation=(GAME.main.personality.gender=='MALE'?'HOMOSEXUAL':'HETEROSEXUAL'))">Male</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-12',()=>GAME.main.personality.sexualOrientation=(GAME.main.personality.gender=='FEMALE'?'HOMOSEXUAL':'HETEROSEXUAL'))">Female</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-13',()=>{GAME.main.personality.sexualOrientation='ASEXUAL';GAME.main.personality.libido-=101;})">Neither</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-12',()=>GAME.main.personality.sexualOrientation='BISEXUAL')">Both</button>&nbsp;
+    <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-12',()=>GAME.main.personality.sexualOrientation='PANSEXUAL')">All of them</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-12">
+   <p>"And how much do you are attracted to?" </p>
+   <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-13',()=>GAME.main.personality.libido-=25)">Very Little</button>&nbsp;
+   <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-13',()=>GAME.main.personality.libido+=15)">A healty amount</button>&nbsp;
+   <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-13',()=>GAME.main.personality.libido+=25)">A lot</button>&nbsp;
+   <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-13',()=>GAME.main.personality.libido+=50)">Way too much</button>&nbsp;
+</div>
+<div data-element-type='dialog' id="dialog-13">
+    <p>"Great, now let's go for a more physical issues..." </p>
+    <button type="button" class="btn btn-secondary" onclick="_continue()">...</button>&nbsp;
+ </div>
+<div data-element-type='dialog' id="dialog-5"></div>       
 <script type="text/javascript">
     hideDialogs().but('dialog-1');  
     
@@ -285,7 +387,8 @@
         empathy:0,
         estability:0,
         libido:0,
-        gender:0,
+        gender:'',
+        sexualOrientation:'',
         traits:[]};
         
     function showDetails(key,expression,data){
@@ -330,7 +433,28 @@
         GAME.main.personality.behaviour.attitude=key;
     };
     function _continue(){
-        setPlace(PLACES._001START_2);
+        GAME.main.pronoums={};
+        GAME.main.pronoums.possessiveAdjective="their";
+        GAME.main.pronoums.possessivePronoum="theirs";
+        GAME.main.pronoums.subject="they";
+        GAME.main.pronoums.object="them";
+        if(GAME.main.personality.gender=='MALE'){
+            GAME.main.pronoums.possessiveAdjective="his";
+            GAME.main.pronoums.possessivePronoum="his";
+            GAME.main.pronoums.subject="he";
+            GAME.main.pronoums.object="him";
+        }else if(GAME.main.personality.gender=='FEMALE'){
+            GAME.main.pronoums.possessiveAdjective="her";
+            GAME.main.pronoums.possessivePronoum="hers";
+            GAME.main.pronoums.subject="she";
+            GAME.main.pronoums.object="her";
+        }else if(GAME.main.personality.gender=='NAME'){
+            GAME.main.pronoums.possessiveAdjective=firstName()+"'s'";
+            GAME.main.pronoums.possessivePronoum=firstName();
+            GAME.main.pronoums.subject=firstName();
+            GAME.main.pronoums.object=firstName();
+        }
+        setPlace(PLACES._001START_3);
     }
    
 </script>

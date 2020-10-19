@@ -1,1 +1,16 @@
-GAME.isStarted=true;
+<div data-first-element data-element-type='dialog' id="dialog-1">
+    <p>(Physical definitions: Under construction)</p>
+    <button type="button" class="btn btn-secondary" onclick="_continue()">...</button>&nbsp;
+    
+</div>
+
+<script type="text/javascript">
+    hideDialogs().but('dialog-1');  
+    
+    GAME.main.body={};
+
+    function _continue(){
+        setPlace(PLACES._001START_4);
+    }
+   
+</script>

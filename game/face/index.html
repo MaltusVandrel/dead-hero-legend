@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<style>
+center *{
+  position: fixed;
+  float: left;
+  display: inline;
+  
+}
+#face{
+  background: url(face.png);
+  width: 250px;
+  height: 250px;;
+  
+}
+#c{
+  mix-blend-mode: overlay;
+}
+#eyes{
+  background: url(eyes.png);
+  width: 250px;
+  height: 250px;
+}
+#c2{
+  mix-blend-mode: screen;
+}
+</style>
+<center>
+  <div id='face'></div>
+  <canvas id=c width="250" height="250"></canvas>
+  <div id='eyes'></div>
+  <canvas id=c2 width="250" height="250"></canvas>
+</center> 
+<script>
+  var color="#ecbcb4";
+  var img = new Image; img.onload = ()=>draw2(ctx,img); img.src = "face.png";
+  var ctx = c.getContext("2d");
+  c2.width=c2.width
+  var img2 = new Image; img2.onload = ()=>draw2(ctx2,img2); img2.src = "eyes.png";
+  var ctx2 = c2.getContext("2d");
+  function draw2(cx,pathimg) {
+    // draw color
+    cx.fillStyle = color;
+    cx.fillRect(0, 0, c2.width, c2.height);  
+    // set composite mode
+    cx.globalCompositeOperation = "destination-in";  
+    // draw image
+    cx.drawImage(pathimg!=undefined?pathimg:this, 0, 0);  
+  }
+  
+  /*
+  to change
+  c2.width=c2.width
+  color="#0F0"
+  draw2(img2)
+  */
+</script>
+
+</body>
+</html>
