@@ -136,7 +136,7 @@
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4')">Well, about the destination</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-3_5">
-    <p>"Your heart is boundless dear friend."</p>
+    <p>"Your heart is boundless, dear friend."</p>
     <button type="button" class="btn btn-secondary" onclick="doDialog('dialog-4')">About the destination</button>&nbsp;
 </div>
 <div data-element-type='dialog' id="dialog-4">
@@ -155,7 +155,7 @@
 
 
 <script type="text/javascript">
-    hideDialogs().but('dialog-1');  
+   hideDialogs().but('dialog-1');  
     
     GAME.main.skills={};
     function skill(arr){
@@ -180,6 +180,8 @@
         $("#"+key).html("");
     }
     function _continue(){
+        GAME.startDate=new Date();
+        GAME.time=60*6;
         setPlace(PLACES._002BEACH_1);
     }
    

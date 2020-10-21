@@ -9,6 +9,14 @@ $(document).on("load-place",(event,payload)=>{
     $.get('/game/places/'+payload.place.code+'.htm').then((data)=>{
        $("#text-panel").html("");
        $("#text-panel").append(data);
-       dataBind("[data-first-element]");
+       if(payload.param&&payload.param.element){
+           dataBind(payload.param.element);
+           $("[data-element-type='dialog']").each((i,element)=>$(element).hide());
+           $(GAME.actualElement).show();
+      }else{
+          dataBind("[data-first-element]");
+          GAME.actualElement="[data-first-element]";
+      }
+      if(GAME.main&&GAME.main.name)save();
     })
 })
