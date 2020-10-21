@@ -1,3 +1,4 @@
+var GAME;
 var ATRIBUTES={
     STR:0,
     DEX:0,
