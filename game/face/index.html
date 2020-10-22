@@ -2,62 +2,99 @@
 <html>
 <head>
 <title>Page Title</title>
+<script type="text/javascript" src="/lib/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <style>
 center *{
   position: fixed;
-  float: left;
+  left:0;
   display: inline;
-  
 }
-#face{
-  background: url(face.png);
-  width: 250px;
-  height: 250px;;
-  
-}
-#c{
+.color{
   mix-blend-mode: overlay;
-}
-#eyes{
-  background: url(eyes.png);
   width: 250px;
   height: 250px;
 }
-#c2{
-  mix-blend-mode: screen;
+.base{
+  width: 250px;
+  height: 250px;
 }
 </style>
-<center>
-  <div id='face'></div>
-  <canvas id=c width="250" height="250"></canvas>
-  <div id='eyes'></div>
-  <canvas id=c2 width="250" height="250"></canvas>
-</center> 
+<center id="face"></center> 
 <script>
-  var color="#ecbcb4";
-  var img = new Image; img.onload = ()=>draw2(ctx,img); img.src = "face.png";
-  var ctx = c.getContext("2d");
-  c2.width=c2.width
-  var img2 = new Image; img2.onload = ()=>draw2(ctx2,img2); img2.src = "eyes.png";
-  var ctx2 = c2.getContext("2d");
-  function draw2(cx,pathimg) {
-    // draw color
-    cx.fillStyle = color;
-    cx.fillRect(0, 0, c2.width, c2.height);  
-    // set composite mode
-    cx.globalCompositeOperation = "destination-in";  
-    // draw image
-    cx.drawImage(pathimg!=undefined?pathimg:this, 0, 0);  
-  }
+
+var hairB='hairb1.png';
+var neck='neck1.png';
+var face='face1.png';
+var nose='nose1.png';
+var lips='lips1.png';
+var eye='eye1.png';
+var eyebrow='eyebrow1.png';
+var hairF='hairf1.png';
+var ear='ear1.png';
+
+var skinColors=[
+'#8d5524',
+'#c68642',
+'#e0ac69',
+'#f1c27d',
+'#ffdbac'
+];
+var eyeColors=[
+'#734e34',
+'#635e34',
+'#7fb4be',
+'#19a337'
+];
+var hairColors=[
+'#241c11',
+'#4f1a00',
+'#9a3300',
+'#E6C882',
+'#FFCC47',
+'#996515'
+];
+
+
+
+var skinColor="#8d5524";
+var eyeColor='#19a337';
+var hairColor='#9a3300';
+
+
+function draw(){
   
-  /*
-  to change
-  c2.width=c2.width
-  color="#0F0"
-  draw2(img2)
-  */
+  var drawList=[
+    {src:hairB,color:hairColor},
+    {src:neck,color:skinColor},
+    {src:face,color:skinColor},
+    {src:nose,color:skinColor},
+    {src:lips,color:skinColor},
+    {src:eye,color:eyeColor},
+    {src:eyebrow,color:hairColor},
+    {src:hairF,color:hairColor},
+    {src:ear,color:skinColor},
+  ];
+  let last=true;
+  $("#face").html('');
+  for(let i=0;i<drawList.length;i++){
+    let source=drawList[i];
+    $("#face").append("<img src='"+source.src+"' class='base'/>");
+    $("#face").append("<canvas id='c"+i+"' class='color'></canvas>");
+    let c = $("#c"+i)[0];
+    let ctx = c.getContext("2d");
+    let img = new Image; img.onload =()=>{
+      ctx.fillStyle = source.color;
+      ctx.fillRect(0, 0, c.width, c.height);  
+      ctx.globalCompositeOperation = "destination-in";  
+      ctx.drawImage(img, 0, 0,img.width,img.height,0,0,c.width,c.height); 
+    }; 
+    img.src = source.src;
+    
+  }
+}
+draw();
 </script>
 
 </body>
