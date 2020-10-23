@@ -14,6 +14,9 @@ function getStorage(key){
 function setStorage(key,val){
     localStorage.setItem(key,val);
 }
+function deleteStorage(key){
+    localStorage.removeItem(key);
+}
 
 function fullDate(date){
     if(date==undefined)return "???";

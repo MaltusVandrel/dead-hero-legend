@@ -21,7 +21,7 @@ function save(){
         setStorage('GAME:'+GAME.id,toJson(GAME));        
     }else{
         for(let i=0;i<saves.length;i++){
-            if(saves[i].id==GAME.id){
+            if(saves[i].game==GAME.id){
                 saves[i].gameTime=GAME.time;
                 saves[i].description=GAME.main.name;
                 saves[i].date=new Date();
