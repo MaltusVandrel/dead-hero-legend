@@ -9,43 +9,7 @@
   <!-- https://phaser.io/examples/v3/view/display/masks/bitmapmask-example -->
   <!-- https://phaser.io/examples/v3/view/display/tint/single-color-tint -->
   <!-- 
-    var config = {
-    type: Phaser.WEBGL,
-    parent: 'phaser-example',
-    width: 800,
-    height: 600,
-    scene: {
-        preload: preload,
-        create: create
-    }
-};
-
-var game = new Phaser.Game(config);
-
-function preload ()
-{
-    this.load.image('face', 'assets/pics/bw-face.png');
-}
-
-function create ()
-{
-    var hsv = Phaser.Display.Color.HSVColorWheel();
-
-    var image = this.add.image(400, 300, 'face');
-
-    // image.setTint(0xff00ff);
-    image.setTint(0xff0000);
-    // image.setTint(0x00ff00);
-    // image.setTint(0x0000ff);
-
-    this.input.on('pointerdown', function (pointer) {
-
-        var i = Phaser.Math.Between(0, 359);
-
-        image.setTint(hsv[i].color);
-
-    });
-}
+    
 
 
   -->
@@ -67,49 +31,108 @@ center *{
 </style>
 <center id="face"></center> 
 <script>
-
-var hairB='hairb1.png';
-var neck='neck1.png';
-var face='face1.png';
-var nose='nose1.png';
-var lips='lips1.png';
-var eye='eye1.png';
-var eyebrow='eyebrow1.png';
-var hairF='hairf1.png';
-var ear='ear1.png';
+var srcList={
+  NECKS:[
+    {name:'Basic (M)',src:'neck1.png',genere:'M'},
+    {name:'Basic (F)',src:'neck2.png',genere:'F'}
+  ],
+  FACES:[
+    {name:'Face 1',src:'face1.png',genere:'N'},
+    {name:'Face 2',src:'face2.png',genere:'N'},
+    {name:'Face 3',src:'face3.png',genere:'N'},
+    {name:'Face 4',src:'face4.png',genere:'N'},
+    {name:'Face 5',src:'face5.png',genere:'N'},
+    {name:'Face 6',src:'face6.png',genere:'N'},
+    {name:'Face 7',src:'face7.png',genere:'N'},
+  ],  
+  HAIRS:[
+    {name:'Hair 1',src:'hairf1.png',genere:'N',back:'hairb1.png'},
+    {name:'Hair 2',src:'hairf2.png',genere:'N',back:'hairb2.png'},
+    {name:'Hair 3',src:'hairf3.png',genere:'N'},
+    {name:'Hair 4',src:'hairf4.png',genere:'N'},
+    {name:'Hair 5',src:'hairf5.png',genere:'N'},
+    {name:'Hair 6',src:'hairf6.png',genere:'N'},
+    {name:'Hair 7',src:'hairf7.png',genere:'N'},
+    {name:'Hair 8',src:'hairf8.png',genere:'N'},
+    {name:'Hair 9',src:'hairf9.png',genere:'N'},
+    {name:'Hair 10',src:'hairf10.png',genere:'N'},
+    {name:'Hair 11',src:'hairf11.png',genere:'N'},
+    {name:'Hair 12',src:'hairf12.png',genere:'N'},
+    {name:'Hair 13',src:'hairf13.png',genere:'N'},
+    {name:'Hair 14',src:'hairf14.png',genere:'N'},
+    {name:'Hair 15',src:'hairf15.png',genere:'N'},
+    {name:'Hair 16',src:'hairf16.png',genere:'N'},
+    {name:'Hair 17',src:'hairf17.png',genere:'N'},
+  ],
+  NOSES:[
+    {name:'Nose 1',src:'nose1.png',genere:'N'},
+    {name:'Nose 2',src:'nose2.png',genere:'N'},
+    {name:'Nose 3',src:'nose3.png',genere:'N'},
+    {name:'Nose 4',src:'nose4.png',genere:'N'},
+    {name:'Nose 5',src:'nose5.png',genere:'N'},
+    {name:'Nose 6',src:'nose6.png',genere:'N'},
+    {name:'Nose 7',src:'nose7.png',genere:'N'},
+    {name:'Nose 8',src:'nose8.png',genere:'N'},
+  ],
+  LIPS:[
+    {name:'Lips 1',src:'lips1.png',genere:'N'},
+    {name:'Lips 2',src:'lips2.png',genere:'N'},
+    {name:'Lips 3',src:'lips3.png',genere:'N'},
+    {name:'Lips 4',src:'lips4.png',genere:'N'},
+  ],
+  EYES:[
+    {name:'Eye 1',src:'eye1.png',genere:'N'},
+    {name:'Eye 2',src:'eye2.png',genere:'N'},
+    {name:'Eye 3',src:'eye3.png',genere:'N'},
+    {name:'Eye 4',src:'eye4.png',genere:'N'},
+    {name:'Eye 5',src:'eye5.png',genere:'N'},
+  ],
+  EYEBROWS:[
+    {name:'Eyebrow 1',src:'eyebrow1.png',genere:'N'},
+    {name:'Eyebrow 2',src:'eyebrow2.png',genere:'N'},
+    {name:'Eyebrow 3',src:'eyebrow3.png',genere:'N'},
+    {name:'Eyebrow 4',src:'eyebrow4.png',genere:'N'},
+  ],
+  EARS:[
+    {name:'Ear 1',src:'ear1.png',genere:'N'},
+    {name:'Ear 2',src:'ear2.png',genere:'N'},
+    {name:'Ear 3',src:'ear3.png',genere:'N'},
+    {name:'Ear 4',src:'ear4.png',genere:'N'},
+    {name:'Ear 5',src:'ear5.png',genere:'N'},
+    {name:'Ear 6',src:'ear6.png',genere:'N'},
+  ],
+  
+};
 
 var skinColors=[
-'#8d5524',
-'#c68642',
-'#e0ac69',
-'#f1c27d',
-'#ffdbac'
+0x8d5524,
+0xc68642,
+0xe0ac69,
+0xf1c27d,
+0xffdbac
 ];
 var eyeColors=[
-'#734e34',
-'#635e34',
-'#7fb4be',
-'#19a337'
+0x734e34,
+0x635e34,
+0x7fb4be,
+0x19a337
 ];
 var hairColors=[
-'#241c11',
-'#4f1a00',
-'#9a3300',
-'#E6C882',
-'#FFCC47',
-'#996515'
+0x241c11,
+0x4f1a00,
+0x9a3300,
+0xE6C882,
+0xFFCC47,
+0x996515
 ];
 
 
 
-var skinColor="#8d5524";
-var eyeColor='#19a337';
-var hairColor='#9a3300';
+var skinColor=0x8d5524;
+var eyeColor=0x19a337;
+var hairColor=0x9a3300;
 
-
-function draw(){
-  
-  var drawList=[
+var drawList=[
     {src:hairB,color:hairColor},
     {src:neck,color:skinColor},
     {src:face,color:skinColor},
@@ -120,6 +143,55 @@ function draw(){
     {src:hairF,color:hairColor},
     {src:ear,color:skinColor},
   ];
+  var config = {
+    type: Phaser.WEBGL,
+    parent: 'face',
+    width: 250,
+    height: 250,
+    scene: {
+        preload: preload,
+        create: create
+    }
+  };
+
+var game = new Phaser.Game(config);
+
+function preload ()
+{
+    for(let key of Object.keys(srcList)){
+      let parts = srcList[key];
+      for(let part of parts){
+        this.load.image(part.src, key.src);
+      }
+    }
+    
+}
+
+function create ()
+{
+    var hsv = Phaser.Display.Color.HSVColorWheel();
+
+    srcList['HAIR'][0]
+    var image = this.add.image(400, 300, 'face');
+
+    image.setTint(0xff0000);
+
+    this.input.on('pointerdown', function (pointer) {
+
+        var i = Phaser.Math.Between(0, 359);
+
+        image.setTint(hsv[i].color);
+
+    });
+}
+
+</script>
+
+<!--  
+
+  function draw(){
+  
+  
   let last=true;
   $("#face").html('');
   for(let i=0;i<drawList.length;i++){
@@ -139,7 +211,7 @@ function draw(){
   }
 }
 draw();
-</script>
 
+-->
 </body>
 </html>
