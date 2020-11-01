@@ -8,11 +8,7 @@
 <body>
   <!-- https://phaser.io/examples/v3/view/display/masks/bitmapmask-example -->
   <!-- https://phaser.io/examples/v3/view/display/tint/single-color-tint -->
-  <!-- 
-    
 
-
-  -->
 <style>
 center *{
   position: fixed;
@@ -30,7 +26,84 @@ center *{
 }
 </style>
 <center id="face"></center> 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div>
+  <label for='necks'>Neck</label>
+  <select id="necks" onchange="setPart('neck')"></select>
+</div>
+<div>
+  <label for='faces'>Face</label>
+  <select id="faces" onchange="setPart('face')"></select>
+</div>
+<div>
+  <label for='hairs'>Hair</label>
+  <select id="hairs" onchange="setPart('hair')"></select>
+</div>
+<div>
+  <label for='eyebrows'>Eyebrow</label>
+  <select id="eyebrows" onchange="setPart('eyebrow')"></select>
+</div>
+<div>
+  <label for='eyes'>Eye</label>
+  <select id="eyes" onchange="setPart('eye')"></select>
+</div>
+<div>
+  <label for='lips'>Lips</label>
+  <select id="lips" onchange="setPart('lips')"></select>
+</div>
+<div>
+  <label for='noses'>Nose</label>
+  <select id="noses" onchange="setPart('nose')"></select>
+</div>
+<div>
+  <label for='ears'>Ear</label>
+  <select id="ears" onchange="setPart('ear')"></select>
+</div>
+<div>
+  <label for='skincolor'>Skin color</label>
+  <select id="skincolor" onchange="setColor('skin')"></select>
+</div>
+<div>
+  <label for='eyecolor'>Eye color</label>
+  <select id="eyecolor" onchange="setColor('eye')"></select>
+</div>
+<div>
+  <label for='haircolor'>Hair color</label>
+  <select id="haircolor" onchange="setColor('hair')"></select>
+</div>
 <script>
+function setPart(selector){ 
+  var id=(selector=='lips'?'lip':selector)
+  var part = $("#"+id+"s").val();
+  head[selector]=part;
+  shouldUpdate=true;
+}
+function setColor(selector){ 
+  var color = $("#"+selector+"color").val();
+  eval(selector+'Color='+color);
+  shouldUpdate=true;
+}
+function doSelects(){
+  for(let key of Object.keys(srcList)){
+      let parts = srcList[key];
+      let select = $("#"+key.toLowerCase());
+
+      for(let i=0;i<parts.length;i++){
+        let part=parts[i];
+        select.append("<option value='"+i+"'>"+part.name+"</option>");
+      }
+  }
+  for(let key of skinColors){
+    $("#skincolor").append("<option value='"+key+"'>"+key+"</option>");
+  }
+  for(let key of hairColors){
+    $("#haircolor").append("<option value='"+key+"'>"+key+"</option>");
+  }
+  for(let key of eyeColors){
+    $("#eyecolor").append("<option value='"+key+"'>"+key+"</option>");
+  }
+}
+
 var srcList={
   NECKS:[
     {name:'Basic (M)',src:'neck1.png',genere:'M'},
@@ -81,11 +154,11 @@ var srcList={
     {name:'Lips 4',src:'lips4.png',genere:'N'},
   ],
   EYES:[
-    {name:'Eye 1',src:'eye1.png',genere:'N'},
-    {name:'Eye 2',src:'eye2.png',genere:'N'},
-    {name:'Eye 3',src:'eye3.png',genere:'N'},
-    {name:'Eye 4',src:'eye4.png',genere:'N'},
-    {name:'Eye 5',src:'eye5.png',genere:'N'},
+    {name:'Eye 1',iris:'iris1.png',sclera:'sclera1.png',genere:'N'},
+    {name:'Eye 2',iris:'iris2.png',sclera:'sclera2.png',genere:'N'},
+    {name:'Eye 3',iris:'iris3.png',sclera:'sclera3.png',genere:'N'},
+    {name:'Eye 4',iris:'iris4.png',sclera:'sclera4.png',genere:'N'},
+    {name:'Eye 5',iris:'iris5.png',sclera:'sclera5.png',genere:'N'},
   ],
   EYEBROWS:[
     {name:'Eyebrow 1',src:'eyebrow1.png',genere:'N'},
@@ -109,7 +182,8 @@ var skinColors=[
 0xc68642,
 0xe0ac69,
 0xf1c27d,
-0xffdbac
+0xffdbac,
+0xffbba4
 ];
 var eyeColors=[
 0x734e34,
@@ -132,17 +206,17 @@ var skinColor=0x8d5524;
 var eyeColor=0x19a337;
 var hairColor=0x9a3300;
 
-var drawList=[
-    {src:hairB,color:hairColor},
-    {src:neck,color:skinColor},
-    {src:face,color:skinColor},
-    {src:nose,color:skinColor},
-    {src:lips,color:skinColor},
-    {src:eye,color:eyeColor},
-    {src:eyebrow,color:hairColor},
-    {src:hairF,color:hairColor},
-    {src:ear,color:skinColor},
-  ];
+var head={
+    hair:0,
+    face:0,
+    nose:0,
+    lips:0,
+    ear:0,
+    eye:0,
+    eyebrow:0,
+    neck:0
+  };
+
   var config = {
     type: Phaser.WEBGL,
     parent: 'face',
@@ -150,31 +224,81 @@ var drawList=[
     height: 250,
     scene: {
         preload: preload,
-        create: create
+        create: create,
+        update:update
     }
   };
 
-var game = new Phaser.Game(config);
+var phaserGame = new Phaser.Game(config);
+function removeExtension(src){
+  return src.split('.')[0];
+}
 
 function preload ()
 {
     for(let key of Object.keys(srcList)){
       let parts = srcList[key];
       for(let part of parts){
-        this.load.image(part.src, key.src);
+        if(part.src)this.load.image(part.src, (part.src));
+        if(part.back)this.load.image(part.back, ( part.back));
+        if(part.iris)this.load.image(part.iris, (part.iris));
+        if(part.sclera)this.load.image(part.sclera, (part.sclera));
       }
     }
     
 }
+var drawedHead={};
+function drawOrder(){
+  var order=[];
+  if(srcList.HAIRS[head.hair].back!=undefined)order.push({type:'hairB',src:srcList.HAIRS[head.hair].back,color:hairColor});
+  order.push({type:'neck',src:srcList.NECKS[head.neck].src,color:skinColor});
+  order.push({type:'face',src:srcList.FACES[head.face].src,color:skinColor});
+  order.push({type:'nose',src:srcList.NOSES[head.nose].src,color:skinColor});
+  order.push({type:'lips',src:srcList.LIPS[head.lips].src,color:skinColor});
+  
+  order.push({type:'sclera',src:srcList.EYES[head.eye].sclera});
+  order.push({type:'iris',src:srcList.EYES[head.eye].iris,color:eyeColor});
+  order.push({type:'eyebrow',src:srcList.EYEBROWS[head.eyebrow].src,color:hairColor});
 
-function create ()
+  order.push({type:'hair',src:srcList.HAIRS[head.hair].src,color:hairColor});
+  order.push({type:'ear',src:srcList.EARS[head.ear].src,color:skinColor});
+  return order;
+}
+function create (){
+  draw(this);
+}
+var a=0;
+var shouldUpdate=false;
+function update (){
+  if(shouldUpdate){
+    console.log(a++);
+    clear();
+    draw(this);
+    shouldUpdate=false;
+  }
+}
+function clear(){
+  for(let key of Object.keys(drawedHead)){
+    let part=drawedHead[key];
+    part.image.destroy();
+  }
+}
+function draw (phaser)
 {
+ 
+    drawedHead={}
     var hsv = Phaser.Display.Color.HSVColorWheel();
 
-    srcList['HAIR'][0]
-    var image = this.add.image(400, 300, 'face');
-
-    image.setTint(0xff0000);
+    for(var part of drawOrder()){
+      var image = phaser.add.image(0, 0, part.src);     
+      image.setOrigin(0, 0);
+      image.setScale(.5);
+      if(part.color)image.setTint(part.color);
+      
+      drawedHead[part.type]={... part, image:image};
+    }
+    
+/*    
 
     this.input.on('pointerdown', function (pointer) {
 
@@ -183,8 +307,9 @@ function create ()
         image.setTint(hsv[i].color);
 
     });
+*/    
 }
-
+doSelects();
 </script>
 
 <!--  
