@@ -1,8 +1,0 @@
-span.version {font-style: oblique;position: fixed;color: rgba(0,0,0,0.3);right: 2px;bottom: 2px;}
-.relevant{
-    font-weight: bold;
-    text-transform: capitalize;
-}
-.lowercase{
-    text-transform: lowercase !important;
-}

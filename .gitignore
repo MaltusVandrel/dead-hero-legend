@@ -1,2 +1,8 @@
-node_modules
-dist
+/.cache
+/dist
+/node_modules
+/package-lock.json
+/.DS_Store
+/.parcel-cache
+/.parcel-cache/*
+/.parcel-cache/*/*
