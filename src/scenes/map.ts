@@ -15,8 +15,8 @@ export default class MapScene extends Phaser.Scene
     }
     create()
     {
-        this.add.image(100,100,'default-icon').setScale(.25).setTint(0xffffff);
+        this.add.image(100,100,'default-icon').setScale(.25);
         this.add.image(200,200,'beach-icon').setScale(.25);
-        this.cameras.main.setBackgroundColor("#D1BE9D");
+        this.cameras.main.setBackgroundColor("#D1BE9D"); 
     }
 }
