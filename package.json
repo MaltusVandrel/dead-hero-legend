@@ -26,7 +26,7 @@
 	},
 	"dependencies": {
 		"parcel": "^2.0.0-beta.2",
-		"phaser": "^3.50.1"		
+		"phaser": "^3.50.1"
 	},
 	"parcelCleanPaths": [
 		"dist"
