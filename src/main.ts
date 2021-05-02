@@ -19,5 +19,5 @@ const config = {
 		MapScene
 	]
 }
-var game = new Phaser.Game(config);
+var game:Phaser.Game = new Phaser.Game(config);
 export default game;

@@ -8,8 +8,7 @@ export default class MainMenuScene extends Phaser.Scene
 {   
     self:Phaser.Scene=this;
     mapButton:TextButton;
-    house;
-    
+   
 	constructor(){
         super({ key: "MainMenuScene" });
 	}
@@ -24,7 +23,8 @@ export default class MainMenuScene extends Phaser.Scene
        
         this.add.existing(this.mapButton);
     }
-    goToMap(){
+    goToMap(){       
+        game.scene.remove(MainMenuScene.name);
         game.scene.start(MapScene.name);
     }
 }
