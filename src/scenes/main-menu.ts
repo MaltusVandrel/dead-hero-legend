@@ -24,7 +24,7 @@ export default class MainMenuScene extends Phaser.Scene
         this.add.existing(this.mapButton);
     }
     goToMap(){       
-        console.log("Hey fucker im here!")
+        console.log(`Hey fucker im here! ${MainMenuScene.name} to ${MapScene.name}`)
         game.scene.remove(MainMenuScene.name);
         game.scene.start(MapScene.name);
     }
