@@ -18,6 +18,7 @@
 		"@babel/core": "^7.10.5",
 		"@babel/plugin-proposal-class-properties": "^7.10.4",
 		"@babel/preset-typescript": "^7.13.0",
+		"@parcel/transformer-image": "^2.0.0-nightly.2271",
 		"babel-eslint": "^10.1.0",
 		"eslint": "^6.8.0",
 		"minimist": ">=1.2.2",
@@ -25,8 +26,7 @@
 		"parcel-plugin-static-files-copy": "^2.4.3"
 	},
 	"dependencies": {
-		"@parcel/transformer-image": "^2.0.0-nightly.1981",
-		"parcel": "^2.0.0-beta.2",
+		"parcel": "^2.0.0-nightly.548",
 		"phaser": "^3.50.1"
 	},
 	"parcelCleanPaths": [
