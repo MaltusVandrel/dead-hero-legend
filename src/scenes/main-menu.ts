@@ -23,7 +23,6 @@ export default class MainMenuScene extends Phaser.Scene
     }
     goToMap(){    
            
-        console.log(`Hey fucker im here! ${GAMEDATA.SCENES.MAIN_MENU} to ${GAMEDATA.SCENES.MAP}`)
         game.scene.remove(GAMEDATA.SCENES.MAIN_MENU);
         game.scene.start(GAMEDATA.SCENES.MAP);
     }
