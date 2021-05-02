@@ -4,7 +4,6 @@ import beachIcon from 'url:~/public/assets/images/icons/beach-icon.png';
 
 export default class MapScene extends Phaser.Scene
 {
-    key="MapScene";
     constructor(){
 		super({ key: "MapScene" });
 	}

@@ -1,15 +1,13 @@
-import Phaser from 'phaser'
+import Phaser  from 'phaser'
 import game from '../main';
 import { TextButton } from '../widget/text-button';
-import MapScene from './map';
-
+import { GAMEDATA } from '../config/data';
 
 export default class MainMenuScene extends Phaser.Scene
 {   
     self:Phaser.Scene=this;
     mapButton:TextButton;
-   
-	constructor(){
+    constructor(){
         super({ key: "MainMenuScene" });
 	}
 
@@ -23,9 +21,10 @@ export default class MainMenuScene extends Phaser.Scene
        
         this.add.existing(this.mapButton);
     }
-    goToMap(){       
-        console.log(`Hey fucker im here! ${MainMenuScene.name} to ${MapScene.name}`)
-        game.scene.remove(MainMenuScene.name);
-        game.scene.start(MapScene.name);
+    goToMap(){    
+           
+        console.log(`Hey fucker im here! ${GAMEDATA.SCENES.MAIN_MENU} to ${GAMEDATA.SCENES.MAP}`)
+        game.scene.remove(GAMEDATA.SCENES.MAIN_MENU);
+        game.scene.start(GAMEDATA.SCENES.MAP);
     }
 }
